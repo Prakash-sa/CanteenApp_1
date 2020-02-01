@@ -1,16 +1,16 @@
-package com.example.canteenapp.ui.applyleave;
+package com.example.canteenapp.ui.student.feedback;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
-public class ApplyLeaveViewModel extends ViewModel {
+public class FeedbackViewModel extends ViewModel {
 
     private MutableLiveData<String> mText;
 
-    public ApplyLeaveViewModel() {
+    public FeedbackViewModel() {
         mText = new MutableLiveData<>();
-        mText.setValue("This is send fragment");
+        mText.setValue("This is slideshow fragment");
     }
 
     public LiveData<String> getText() {

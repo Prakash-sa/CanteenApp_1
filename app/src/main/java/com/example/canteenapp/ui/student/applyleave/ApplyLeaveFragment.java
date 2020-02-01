@@ -1,4 +1,4 @@
-package com.example.canteenapp.ui.home;
+package com.example.canteenapp.ui.student.applyleave;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -14,17 +14,17 @@ import androidx.lifecycle.ViewModelProviders;
 
 import com.example.canteenapp.R;
 
-public class HomeFragment extends Fragment {
+public class ApplyLeaveFragment extends Fragment {
 
-    private HomeViewModel homeViewModel;
+    private ApplyLeaveViewModel applyLeaveViewModel;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        homeViewModel =
-                ViewModelProviders.of(this).get(HomeViewModel.class);
-        View root = inflater.inflate(R.layout.fragment_home, container, false);
-        final TextView textView = root.findViewById(R.id.text_home);
-        homeViewModel.getText().observe(this, new Observer<String>() {
+        applyLeaveViewModel =
+                ViewModelProviders.of(this).get(ApplyLeaveViewModel.class);
+        View root = inflater.inflate(R.layout.fragment_apply_leave, container, false);
+        final TextView textView = root.findViewById(R.id.text_send);
+        applyLeaveViewModel.getText().observe(this, new Observer<String>() {
             @Override
             public void onChanged(@Nullable String s) {
                 textView.setText(s);
