@@ -28,7 +28,7 @@ public class MyAccountFragment extends Fragment {
 
 
     private MyAccountViewModel myAccountViewModel;
-    private TextView student_name,student_email,student_medd_id,student_rebate,student_refund,student_monthly_payment,student_extras_payment;
+    private TextView student_name,student_email,student_mess_id,student_rebate,student_refund,student_monthly_payment,student_extras_payment;
     private ImageView profile_picture;
 
     private Context mcontext;
@@ -58,7 +58,7 @@ public class MyAccountFragment extends Fragment {
 
         student_name=root.findViewById(R.id.student_name);
         student_email=root.findViewById(R.id.student_email);
-        student_medd_id=root.findViewById(R.id.student_mees_id);
+        student_mess_id=root.findViewById(R.id.student_mees_id);
         student_rebate=root.findViewById(R.id.student_rebate);
         student_refund=root.findViewById(R.id.student_refund);
         student_monthly_payment=root.findViewById(R.id.student_monthly_payment);
@@ -90,7 +90,7 @@ public class MyAccountFragment extends Fragment {
     private void UpdateUi(){
         student_name.setText(myaccount.getName());
         student_email.setText(myaccount.getEmail());
-        student_medd_id.setText(myaccount.getMess_id());
+        student_mess_id.setText(myaccount.getMess_id());
         student_rebate.setText(myaccount.getRebate()+"Rs");
         student_refund.setText(myaccount.getRefund()+"Rs");
         student_monthly_payment.setText(myaccount.getMonthly_payment()+"Rs");
