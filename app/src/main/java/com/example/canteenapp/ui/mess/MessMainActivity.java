@@ -3,6 +3,7 @@ package com.example.canteenapp.ui.mess;
 import android.content.Intent;
 import android.os.Bundle;
 
+import com.example.canteenapp.Logout;
 import com.example.canteenapp.R;
 import com.example.canteenapp.ui.ChoiceActivity;
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
@@ -56,7 +57,7 @@ public class MessMainActivity extends AppCompatActivity {
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
         mAppBarConfiguration = new AppBarConfiguration.Builder(
-                R.id.nav_home, R.id.nav_share, R.id.nav_send)
+                R.id.nav_home)
                 .setDrawerLayout(drawer)
                 .build();
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
@@ -78,15 +79,11 @@ public class MessMainActivity extends AppCompatActivity {
 
         if (item.getItemId() == R.id.action_logout) {
 
-            googleSignInClient.signOut().addOnCompleteListener(new OnCompleteListener<Void>() {
-                @Override
-                public void onComplete(@NonNull Task<Void> task) {
-                    //On Succesfull signout we navigate the user back to LoginActivity
-                    Intent intent=new Intent(MessMainActivity.this, ChoiceActivity.class);
-                    intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                    startActivity(intent);
-                }
-            });
+            Logout.CompleteSignOut();
+
+            startActivity(new Intent(this, ChoiceActivity.class)
+                    .setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP|Intent.FLAG_ACTIVITY_NEW_TASK));
+            finish();
         }
 
         return super.onOptionsItemSelected(item);

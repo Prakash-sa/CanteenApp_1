@@ -8,6 +8,8 @@ import android.os.Bundle;
 import android.util.Log;
 import android.widget.Toast;
 
+import com.example.canteenapp.Logout;
+import com.example.canteenapp.model.Account;
 import com.example.canteenapp.ui.mess.MessMainActivity;
 import com.example.canteenapp.ui.student.StudentMainActivity;
 import com.example.canteenapp.ui.mess.registermess.RegisterMess;
@@ -39,6 +41,7 @@ public class SplashActivity extends AppCompatActivity {
         }
 
         mAuth = FirebaseAuth.getInstance();
+        Logout.init(getApplicationContext());
     }
 
     @Override
@@ -49,33 +52,33 @@ public class SplashActivity extends AppCompatActivity {
             startActivity(new Intent(SplashActivity.this, ChoiceActivity.class));
             finish();
         } else {
-            Log.d(TAG, "no firebase use logged in");
+            Log.d(TAG, "no firebase user logged in");
 
             role = getIntent().getStringExtra("role");
-            if (role == null || role.equals("")) {
-                nextClass = null;
-                mainClass = null;
-            }
-            else if (role.equals("student")) {
-                nextClass = RegisterStudent.class;
-                mainClass = StudentMainActivity.class;
-            }
-            else if (role.equals("mess")) {
-                nextClass = RegisterMess.class;
-                mainClass = MessMainActivity.class;
-            }
+            setClasses();
 
             RegistrationCheck();
         }
     }
 
     private void RegistrationCheck() {
-        DatabaseReference dbref = FirebaseDatabase.getInstance().getReference("users/"+role+"/" + mAuth.getCurrentUser().getUid() + "/account");
+        DatabaseReference dbref = FirebaseDatabase.getInstance().getReference("users/" + mAuth.getCurrentUser().getUid() + "/account");
         dbref.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                Boolean status = dataSnapshot.getValue(Boolean.class);
-                if (status == Boolean.TRUE && mainClass != null)
+                Account account = dataSnapshot.getValue(Account.class);
+                if (account != null )
+                    if ((role == null || role.equals("")))
+                        role = account.getRole();
+                    else if (!role.equals(account.getRole())) {
+                        Toast.makeText(SplashActivity.this, "This account is associated with other role.", Toast.LENGTH_LONG).show();
+                        Logout.FirebaseSignOut();
+                        Logout.GoogleSignOut();
+                        return;
+                    }
+                setClasses();
+
+                if (account != null && account.getRegistered() == Boolean.TRUE && mainClass != null)
                     startActivity(new Intent(SplashActivity.this, mainClass));
 
                 else if (nextClass != null)
@@ -86,7 +89,7 @@ public class SplashActivity extends AppCompatActivity {
                     Toast.makeText(SplashActivity.this, "Login error.", Toast.LENGTH_LONG).show();
                     startActivity(new Intent(SplashActivity.this, SplashActivity.class)
                             .setFlags(Intent.FLAG_ACTIVITY_NEW_TASK));
-                    mAuth.signOut();
+                    Logout.CompleteSignOut();
                 }
                 finish();
             }
@@ -97,5 +100,21 @@ public class SplashActivity extends AppCompatActivity {
                 Toast.makeText(SplashActivity.this, "Login cancelled", Toast.LENGTH_LONG).show();
             }
         });
+    }
+
+    private void setClasses() {
+
+        if (role == null || role.equals("")) {
+            nextClass = null;
+            mainClass = null;
+        }
+        else if (role.equals("student")) {
+            nextClass = RegisterStudent.class;
+            mainClass = StudentMainActivity.class;
+        }
+        else if (role.equals("mess")) {
+            nextClass = RegisterMess.class;
+            mainClass = MessMainActivity.class;
+        }
     }
 }
