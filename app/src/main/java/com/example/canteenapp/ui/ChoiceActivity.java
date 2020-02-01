@@ -110,7 +110,7 @@ public class ChoiceActivity extends AppCompatActivity {
 
                                 if (!task.getResult().getAdditionalUserInfo().isNewUser()){
                                     Log.d(TAG, "Not a new user");
-                                    startActivity(new Intent(ChoiceActivity.this, MainActivity.class)
+                                    startActivity(new Intent(ChoiceActivity.this, SplashActivity.class)
                                             .setFlags(Intent.FLAG_ACTIVITY_NEW_TASK));
                                     nextClass = null;
                                     finish();
