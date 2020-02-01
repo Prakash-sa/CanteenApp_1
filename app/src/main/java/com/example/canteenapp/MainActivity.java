@@ -1,20 +1,7 @@
 package com.example.canteenapp;
 
-import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
 
-import com.example.canteenapp.Adapter.MyAccount;
-import com.example.canteenapp.ui.applyleave.ApplyLeaveFragment;
-import com.example.canteenapp.ui.feedback.FeedbackFragment;
-import com.example.canteenapp.ui.myaccount.MyAccountFragment;
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.google.android.material.snackbar.Snackbar;
-
-import android.view.MenuItem;
-import android.view.View;
-
-import androidx.annotation.NonNull;
 import androidx.core.view.GravityCompat;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.NavController;
@@ -31,8 +18,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
 import android.view.Menu;
-
-import static java.security.AccessController.getContext;
 
 public class MainActivity extends AppCompatActivity {
 

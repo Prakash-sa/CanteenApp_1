@@ -14,10 +14,10 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".ui.payment.PaymentAcitivity"></activity>
-        <activity android:name=".ui.mess.MessActivity" />
-        <activity android:name=".ui.registermess.RegisterMess" />
-        <activity android:name=".ui.registerstudent.RegisterStudent" />
+        <activity android:name=".ui.student.payment.PaymentAcitivity"></activity>
+        <activity android:name=".studentui.mess.MessActivity" />
+        <activity android:name=".ui.mess.registermess.RegisterMess" />
+        <activity android:name=".ui.student.registerstudent.RegisterStudent" />
         <activity
             android:name=".ui.ChoiceActivity"
             android:theme="@style/NoActionBar" />

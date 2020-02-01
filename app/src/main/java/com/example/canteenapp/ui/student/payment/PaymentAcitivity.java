@@ -1,4 +1,4 @@
-package com.example.canteenapp.ui.payment;
+package com.example.canteenapp.ui.student.payment;
 
 import androidx.appcompat.app.AppCompatActivity;
 

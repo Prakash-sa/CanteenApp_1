@@ -1,4 +1,4 @@
-package com.example.canteenapp.ui.myaccount;
+package com.example.canteenapp.ui.student.myaccount;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;

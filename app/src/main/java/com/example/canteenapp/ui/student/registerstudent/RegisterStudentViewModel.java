@@ -1,4 +1,4 @@
-package com.example.canteenapp.ui.registerstudent;
+package com.example.canteenapp.ui.student.registerstudent;
 
 import androidx.lifecycle.ViewModel;
 

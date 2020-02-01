@@ -1,4 +1,4 @@
-package com.example.canteenapp.ui.registermess;
+package com.example.canteenapp.ui.mess.registermess;
 
 import androidx.lifecycle.ViewModel;
 

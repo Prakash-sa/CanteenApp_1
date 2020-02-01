@@ -1,4 +1,4 @@
-package com.example.canteenapp.ui.registermess;
+package com.example.canteenapp.ui.student.registerstudent;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -13,7 +13,7 @@ import com.example.canteenapp.R;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
-public class RegisterMess extends AppCompatActivity {
+public class RegisterStudent extends AppCompatActivity {
     FirebaseUser user = null;
     TextView name, email;
     EditText messID;
@@ -22,7 +22,7 @@ public class RegisterMess extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_register_mess);
+        setContentView(R.layout.activity_register_student);
 
         user = FirebaseAuth.getInstance().getCurrentUser();
         name = findViewById(R.id.name);
