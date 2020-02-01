@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mess_navigation"
+    app:startDestination="@+id/nav_home_mess">
+
+    <fragment
+        android:id="@+id/nav_home_mess"
+        android:name="com.example.canteenapp.ui.mess.home.HomeFragment"
+        android:label="@string/menu_home"
+        tools:layout="@layout/fragment_mess_home" />
+
+    <fragment
+        android:id="@+id/nav_update"
+        android:name="com.example.canteenapp.ui.mess.updatemenu.UpdateMenu"
+        android:label="Update"
+        tools:layout="@layout/update_menu_fragment" />
+
+</navigation>

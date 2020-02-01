@@ -12,6 +12,9 @@ public class Account {
     }
 
     public Account(Boolean status, String messid, String role) {
+        registered=status;
+        this.messid=messid;
+        this.role=role;
         this.setRole(role);
         this.setMessid(messid);
         this.setRegistered(status);

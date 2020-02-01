@@ -1,4 +1,4 @@
-package com.example.canteenapp.Adapter;
+package com.example.canteenapp.model;
 
 import java.util.HashMap;
 

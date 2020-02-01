@@ -67,11 +67,11 @@ public class RegisterStudent extends AppCompatActivity {
 
             // save the details to firebase
             DatabaseReference dbref = FirebaseDatabase.getInstance().getReference("users/" + user.getUid() + "/account");
-            Account account = new Account();
+            Account account = new Account(Boolean.TRUE,messid,"student");
 
-            account.setMessid(messid);
-            account.setRegistered(Boolean.TRUE);
-            account.setRole("student");
+            //account.setMessid(messid);
+            //account.setRegistered(Boolean.TRUE);
+            //account.setRole("student");
 
             dbref.setValue(account).addOnSuccessListener(new OnSuccessListener<Void>() {
                 @Override

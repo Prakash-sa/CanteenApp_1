@@ -14,7 +14,7 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProviders;
 
 import com.bumptech.glide.Glide;
-import com.example.canteenapp.Adapter.MyAccount;
+import com.example.canteenapp.model.MyAccount;
 import com.example.canteenapp.R;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -37,8 +37,6 @@ public class MyAccountFragment extends Fragment {
     private Context mcontext;
     private FirebaseDatabase database = FirebaseDatabase.getInstance();
     private DatabaseReference myRef = database.getReference("Students");
-    private ArrayList<String> student_details=new ArrayList<>();
-
     private MyAccount myaccount;
 
     @Override
@@ -75,11 +73,6 @@ public class MyAccountFragment extends Fragment {
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 myaccount=dataSnapshot.getValue(MyAccount.class);
                 Log.i("MyAccount",myaccount.getEmail());
-                student_details.clear();
-                for (DataSnapshot data:dataSnapshot.getChildren()){
-                    student_details.add(data.getKey());
-                }
-                Log.i("Length",student_details.size()+"");
                 UpdateUi();
             }
 
