@@ -20,8 +20,11 @@ import com.example.canteenapp.R;
 import com.example.canteenapp.ui.mess.home.HomeViewModel;
 import com.example.canteenapp.ui.mess.updatedatabase.UpdateDatabase;
 
+import static com.example.canteenapp.ui.mess.home.HomeFragment.getCurrentDay;
+
 public class UpdateMenu extends Fragment {
 
+    private String today;
     private Intent intent;
     private UpdateMenuViewModel mViewModel;
     private Button update_next_menu,update_next_extra,bt_menu_monday,bt_menu_tuesday,bt_menu_wednesday,bt_menu_thursday,bt_menu_friday,bt_menu_saturday,bt_menu_sunday;
@@ -35,6 +38,7 @@ public class UpdateMenu extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
 
+        today=getCurrentDay();
         mViewModel =
                 ViewModelProviders.of(this).get(UpdateMenuViewModel.class);
         View root = inflater.inflate(R.layout.update_menu_fragment, container, false);
@@ -60,8 +64,8 @@ public class UpdateMenu extends Fragment {
             @Override
             public void onClick(View v) {
                 intent=new Intent(getContext(), UpdateDatabase.class);
-                intent.putExtra("type","");
-                intent.putExtra("day","");
+                intent.putExtra("type","menu");
+                intent.putExtra("day",today);
                 startActivity(intent);
             }
         });
@@ -69,8 +73,8 @@ public class UpdateMenu extends Fragment {
             @Override
             public void onClick(View v) {
                 intent=new Intent(getContext(), UpdateDatabase.class);
-                intent.putExtra("type","");
-                intent.putExtra("day","");
+                intent.putExtra("type","extra");
+                intent.putExtra("day",today);
                 startActivity(intent);
             }
         });
