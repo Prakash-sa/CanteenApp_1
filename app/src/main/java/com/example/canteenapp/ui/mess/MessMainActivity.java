@@ -3,6 +3,7 @@ package com.example.canteenapp.ui.mess;
 import android.content.Intent;
 import android.os.Bundle;
 
+import com.bumptech.glide.Glide;
 import com.example.canteenapp.Logout;
 import com.example.canteenapp.R;
 import com.example.canteenapp.ui.ChoiceActivity;
@@ -25,6 +26,8 @@ import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
 import com.google.android.material.navigation.NavigationView;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 import androidx.drawerlayout.widget.DrawerLayout;
 
@@ -32,9 +35,16 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
 import android.view.Menu;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 public class MessMainActivity extends AppCompatActivity {
 
+
+    private ImageView nav_image;
+    private TextView nav_name,nav_email;
+    private FirebaseUser user;
+    private NavigationView navigationView;
     private AppBarConfiguration mAppBarConfiguration;
     private DrawerLayout drawer;
     private GoogleSignInClient googleSignInClient;
@@ -44,7 +54,21 @@ public class MessMainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main2);
         Toolbar toolbar = findViewById(R.id.toolbar);
+        user= FirebaseAuth.getInstance().getCurrentUser();
         setSupportActionBar(toolbar);
+
+        navigationView = (NavigationView) findViewById(R.id.nav_view_2);
+        View hView = navigationView.getHeaderView(0);
+
+        nav_image=hView.findViewById(R.id.nav_imageView_mess);
+        nav_name=hView.findViewById(R.id.nav_text_name_mess);
+        nav_email=hView.findViewById(R.id.nav_email_mess);
+
+        if(user!=null){
+            Glide.with(this).load(user.getPhotoUrl()).into(nav_image);
+            nav_name.setText(user.getDisplayName());
+            nav_email.setText(user.getEmail());
+        }
 
         GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
                 .requestIdToken(getResources().getString(R.string.getidtoken))
@@ -53,7 +77,6 @@ public class MessMainActivity extends AppCompatActivity {
         googleSignInClient = GoogleSignIn.getClient(this, gso);
 
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
-        NavigationView navigationView = findViewById(R.id.nav_view);
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
         mAppBarConfiguration = new AppBarConfiguration.Builder(

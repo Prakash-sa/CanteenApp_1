@@ -13,6 +13,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.bumptech.glide.Glide;
 import com.example.canteenapp.R;
 import com.example.canteenapp.model.Account;
 import com.example.canteenapp.ui.mess.MessMainActivity;
@@ -28,9 +29,9 @@ import com.google.firebase.database.FirebaseDatabase;
 
 public class RegisterStudent extends AppCompatActivity {
     FirebaseUser user = null;
-    TextView name, email;
-    EditText messID;
-    ImageView dp;
+    private TextView name, email,nav_email,nav_name;
+    private EditText messID;
+    private ImageView dp,nav_image;
     private final String TAG = "RegisterStudent";
 
     @Override
@@ -48,6 +49,8 @@ public class RegisterStudent extends AppCompatActivity {
             name.setText(user.getDisplayName());
             email.setText(user.getEmail());
             dp.setImageURI(user.getPhotoUrl());
+
+
         } else {
             Toast.makeText(this, "Something is not right. Please restart the app.", Toast.LENGTH_LONG).show();
         }
