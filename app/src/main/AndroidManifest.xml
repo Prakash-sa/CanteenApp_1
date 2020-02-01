@@ -14,8 +14,11 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".ui.student.payment.PaymentAcitivity"></activity>
-        <activity android:name=".studentui.mess.MessActivity" />
+        <activity
+            android:name=".ui.mess.MainActivity"
+            android:label="@string/app_name"
+            android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name=".ui.student.payment.PaymentAcitivity" />
         <activity android:name=".ui.mess.registermess.RegisterMess" />
         <activity android:name=".ui.student.registerstudent.RegisterStudent" />
         <activity
@@ -31,9 +34,9 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".MainActivity"
+            android:name=".ui.student.MainActivity"
             android:label="@string/app_name"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
     </application>
 
 </manifest>

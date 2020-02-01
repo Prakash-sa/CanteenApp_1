@@ -4,12 +4,11 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
-import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.Toast;
 
-import com.example.canteenapp.MainActivity;
+import com.example.canteenapp.ui.student.MainActivity;
 import com.example.canteenapp.ui.mess.registermess.RegisterMess;
 import com.example.canteenapp.ui.student.registerstudent.RegisterStudent;
 import com.google.firebase.FirebaseApp;

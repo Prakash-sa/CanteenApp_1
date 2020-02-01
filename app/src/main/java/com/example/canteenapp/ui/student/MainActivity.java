@@ -1,4 +1,4 @@
-package com.example.canteenapp;
+package com.example.canteenapp.ui.student;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -12,6 +12,7 @@ import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 import androidx.fragment.app.FragmentManager;
 
+import com.example.canteenapp.R;
 import com.example.canteenapp.ui.ChoiceActivity;
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInClient;

@@ -10,7 +10,6 @@ import android.view.View;
 import android.widget.RelativeLayout;
 import android.widget.Toast;
 
-import com.example.canteenapp.MainActivity;
 import com.example.canteenapp.R;
 import com.example.canteenapp.ui.mess.registermess.RegisterMess;
 import com.example.canteenapp.ui.student.registerstudent.RegisterStudent;
