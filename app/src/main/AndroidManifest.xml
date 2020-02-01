@@ -18,9 +18,14 @@
             android:name=".ui.mess.MainActivity"
             android:label="@string/app_name"
             android:theme="@style/AppTheme.NoActionBar"/>
-        <activity android:name=".ui.student.payment.PaymentAcitivity" />
-        <activity android:name=".ui.mess.registermess.RegisterMess" />
-        <activity android:name=".ui.student.registerstudent.RegisterStudent" />
+        <activity
+            android:name=".ui.student.payment.PaymentAcitivity"/>
+        <activity
+            android:name=".ui.mess.registermess.RegisterMess"
+            android:theme="@style/AppTheme.NoActionBar"/>
+        <activity
+            android:name=".ui.student.registerstudent.RegisterStudent"
+            android:theme="@style/AppTheme.NoActionBar"/>
         <activity
             android:name=".ui.ChoiceActivity"
             android:theme="@style/NoActionBar" />
