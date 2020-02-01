@@ -22,8 +22,9 @@ import com.google.firebase.database.ValueEventListener;
 
 public class SplashActivity extends AppCompatActivity {
 
-    FirebaseAuth mAuth;
-    Class nextClass = null;
+    private FirebaseAuth mAuth;
+    private Class nextClass = null, mainClass = null;
+    private String role;
     private final String TAG = "Splash";
 
     @Override
@@ -49,15 +50,18 @@ public class SplashActivity extends AppCompatActivity {
         } else {
             Log.d(TAG, "no firebase use logged in");
 
-            String role = getIntent().getStringExtra("role");
+            role = getIntent().getStringExtra("role");
             if (role == null || role.equals("")) {
                 nextClass = null;
+                mainClass = null;
             }
             else if (role.equals("student")) {
                 nextClass = RegisterStudent.class;
+                mainClass = MainActivity.class;
             }
             else if (role.equals("mess")) {
                 nextClass = RegisterMess.class;
+                mainClass = com.example.canteenapp.ui.mess.MainActivity.class;
             }
 
             RegistrationCheck();
@@ -65,13 +69,13 @@ public class SplashActivity extends AppCompatActivity {
     }
 
     private void RegistrationCheck() {
-        DatabaseReference dbref = FirebaseDatabase.getInstance().getReference("users/" + mAuth.getCurrentUser().getUid() + "/account");
+        DatabaseReference dbref = FirebaseDatabase.getInstance().getReference("users/"+role+"/" + mAuth.getCurrentUser().getUid() + "/account");
         dbref.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 Boolean status = dataSnapshot.getValue(Boolean.class);
-                if (status == Boolean.TRUE)
-                    startActivity(new Intent(SplashActivity.this, MainActivity.class));
+                if (status == Boolean.TRUE && mainClass != null)
+                    startActivity(new Intent(SplashActivity.this, mainClass));
 
                 else if (nextClass != null)
                     startActivity(new Intent(SplashActivity.this, nextClass));
