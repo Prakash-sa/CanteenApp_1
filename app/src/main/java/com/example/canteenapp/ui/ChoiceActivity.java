@@ -32,6 +32,7 @@ public class ChoiceActivity extends AppCompatActivity {
     private static final String TAG = "Splash";
     private GoogleSignInClient mGoogleSignInClient;
     private FirebaseAuth mAuth;
+    private String role;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,6 +53,7 @@ public class ChoiceActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 nextClass = RegisterStudent.class;
+                role = "student";
                 signIn();
             }
         });
@@ -60,6 +62,7 @@ public class ChoiceActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 nextClass = RegisterMess.class;
+                role = "mess";
                 signIn();
             }
         });
@@ -111,7 +114,8 @@ public class ChoiceActivity extends AppCompatActivity {
                                 if (!task.getResult().getAdditionalUserInfo().isNewUser()){
                                     Log.d(TAG, "Not a new user");
                                     startActivity(new Intent(ChoiceActivity.this, SplashActivity.class)
-                                            .setFlags(Intent.FLAG_ACTIVITY_NEW_TASK));
+                                            .setFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+                                            .putExtra("role", role));
                                     nextClass = null;
                                     finish();
                                 }
