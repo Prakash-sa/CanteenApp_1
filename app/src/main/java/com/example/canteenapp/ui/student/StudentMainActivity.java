@@ -28,9 +28,8 @@ import androidx.appcompat.widget.Toolbar;
 
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.Toast;
 
-public class MainActivity extends AppCompatActivity {
+public class StudentMainActivity extends AppCompatActivity {
 
     private AppBarConfiguration mAppBarConfiguration;
     private Fragment myFragment=null;
@@ -90,7 +89,7 @@ public class MainActivity extends AppCompatActivity {
                 @Override
                 public void onComplete(@NonNull Task<Void> task) {
                     //On Succesfull signout we navigate the user back to LoginActivity
-                    Intent intent=new Intent(MainActivity.this,ChoiceActivity.class);
+                    Intent intent=new Intent(StudentMainActivity.this,ChoiceActivity.class);
                     intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                     startActivity(intent);
                 }

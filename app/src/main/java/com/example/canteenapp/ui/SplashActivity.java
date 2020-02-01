@@ -8,7 +8,8 @@ import android.os.Bundle;
 import android.util.Log;
 import android.widget.Toast;
 
-import com.example.canteenapp.ui.student.MainActivity;
+import com.example.canteenapp.ui.mess.MessMainActivity;
+import com.example.canteenapp.ui.student.StudentMainActivity;
 import com.example.canteenapp.ui.mess.registermess.RegisterMess;
 import com.example.canteenapp.ui.student.registerstudent.RegisterStudent;
 import com.google.firebase.FirebaseApp;
@@ -57,11 +58,11 @@ public class SplashActivity extends AppCompatActivity {
             }
             else if (role.equals("student")) {
                 nextClass = RegisterStudent.class;
-                mainClass = MainActivity.class;
+                mainClass = StudentMainActivity.class;
             }
             else if (role.equals("mess")) {
                 nextClass = RegisterMess.class;
-                mainClass = com.example.canteenapp.ui.mess.MainActivity.class;
+                mainClass = MessMainActivity.class;
             }
 
             RegistrationCheck();

@@ -16,4 +16,5 @@
     <string name="menu_send">Send</string>
 
     <string name="getidtoken">1040092779697-oucm7581052rptnm8sioemfa3rj5q5m0.apps.googleusercontent.com</string>
+    <string name="title_activity_main">MainActivity</string>
 </resources>

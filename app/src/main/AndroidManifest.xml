@@ -15,17 +15,16 @@
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
         <activity
-            android:name=".ui.mess.MainActivity"
-            android:label="@string/app_name"
-            android:theme="@style/AppTheme.NoActionBar"/>
-        <activity
-            android:name=".ui.student.payment.PaymentAcitivity"/>
+            android:name=".ui.mess.MessMainActivity"
+            android:label="@string/title_activity_main"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
+        <activity android:name=".ui.student.payment.PaymentAcitivity" />
         <activity
             android:name=".ui.mess.registermess.RegisterMess"
-            android:theme="@style/AppTheme.NoActionBar"/>
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".ui.student.registerstudent.RegisterStudent"
-            android:theme="@style/AppTheme.NoActionBar"/>
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".ui.ChoiceActivity"
             android:theme="@style/NoActionBar" />
@@ -39,7 +38,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".ui.student.MainActivity"
+            android:name=".ui.student.StudentMainActivity"
             android:label="@string/app_name"
             android:theme="@style/AppTheme.NoActionBar" />
     </application>
