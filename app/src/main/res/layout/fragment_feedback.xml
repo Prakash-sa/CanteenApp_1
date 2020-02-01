@@ -1,251 +1,339 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:orientation="vertical">
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        >
+        android:layout_height="match_parent"
+        android:paddingStart="24dp"
+        android:paddingEnd="16dp"
+        android:overScrollMode="never"
+        android:scrollbars="none">
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            >
-            <EditText
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="32dp"
+                android:text="Email" />
+
+            <TextView
+                android:id="@+id/mail"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:hint="someone@example.com"
+                android:textColor="#000000"
+                android:textSize="16sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text="Feedback" />
+
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="150dp"
-                android:padding="10dp"
-                android:background="@drawable/border"
-                android:layout_margin="20dp"
-                android:id="@+id/feddback_edit_text"/>
+                android:layout_height="wrap_content"
+                android:background="@drawable/border_normal"
+                android:orientation="vertical">
+
+                <EditText
+                    android:id="@+id/feedback"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@null"
+                    android:elegantTextHeight="true"
+                    android:hint="Give description related to your feedback."
+                    android:minHeight="64dp"
+                    android:textAppearance="@style/TextAppearance.MaterialComponents.Body1" />
+
+            </LinearLayout>
 
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:layout_gravity="center"
-                android:layout_marginTop="20dp"
-                android:padding="20dp"
-                >
-            <TextView
-                android:textSize="20dp"
+                android:layout_gravity="end"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/char_count"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="0" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="/400" />
+
+            </LinearLayout>
+
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Food Quality"
-                />
+                android:layout_gravity="center"
+                android:layout_marginTop="20dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Food Quality"
+                    android:layout_marginTop="24dp"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Body2"/>
+
                 <RadioGroup
-                    android:orientation="horizontal"
                     android:id="@+id/radio_answer_1"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-                    <RadioButton
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_margin="5dp"
-                        android:text="Good"/>
-                    <RadioButton
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_margin="5dp"
-                        android:text="Medium"/>
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
 
                     <RadioButton
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_margin="5dp"
-                        android:text="Poor"/>
+                        android:text="Good" />
+
                     <RadioButton
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_margin="5dp"
-                        android:text="Bad"/>
+                        android:text="Medium" />
+
+                    <RadioButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="5dp"
+                        android:text="Poor" />
+
+                    <RadioButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="5dp"
+                        android:text="Bad" />
                 </RadioGroup>
 
                 <TextView
-                    android:textSize="20dp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Food Quantity"
-                    />
+                    android:layout_marginTop="24dp"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Body2"/>
 
                 <RadioGroup
                     android:id="@+id/radio_answer_2"
-                    android:orientation="horizontal"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-                    <RadioButton
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_margin="5dp"
-                        android:text="Too much"/>
-                    <RadioButton
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_margin="5dp"
-                        android:text="Sufficient"/>
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
 
                     <RadioButton
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_margin="5dp"
-                        android:text="Less"/>
+                        android:text="Too much" />
+
+                    <RadioButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="5dp"
+                        android:text="Sufficient" />
+
+                    <RadioButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="5dp"
+                        android:text="Less" />
                 </RadioGroup>
 
                 <TextView
-                    android:textSize="20dp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Mess are Hygienic"
-                    />
+                    android:layout_marginTop="24dp"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Body2"/>
 
                 <RadioGroup
                     android:id="@+id/radio_answer_3"
-                    android:orientation="horizontal"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-                    <RadioButton
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_margin="5dp"
-                        android:text="Good"/>
-                    <RadioButton
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_margin="5dp"
-                        android:text="Medium"/>
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
 
                     <RadioButton
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_margin="5dp"
-                        android:text="Poor"/>
+                        android:text="Good" />
+
                     <RadioButton
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_margin="5dp"
-                        android:text="Bad"/>
+                        android:text="Medium" />
+
+                    <RadioButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="5dp"
+                        android:text="Poor" />
+
+                    <RadioButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="5dp"
+                        android:text="Bad" />
                 </RadioGroup>
 
                 <TextView
-                    android:textSize="20dp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Food Hygienic"
-                    />
+                    android:layout_marginTop="24dp"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Body2"/>
 
                 <RadioGroup
                     android:id="@+id/radio_answer_4"
-                    android:orientation="horizontal"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-                    <RadioButton
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_margin="5dp"
-                        android:text="Good"/>
-                    <RadioButton
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_margin="5dp"
-                        android:text="Medium"/>
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
 
                     <RadioButton
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_margin="5dp"
-                        android:text="Poor"/>
+                        android:text="Good" />
+
                     <RadioButton
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_margin="5dp"
-                        android:text="Bad"/>
+                        android:text="Medium" />
+
+                    <RadioButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="5dp"
+                        android:text="Poor" />
+
+                    <RadioButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="5dp"
+                        android:text="Bad" />
                 </RadioGroup>
 
                 <TextView
-                    android:textSize="20dp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Utensils Hygienic"
-                    />
+                    android:layout_marginTop="24dp"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Body2"/>
 
                 <RadioGroup
                     android:id="@+id/radio_answer_5"
-                    android:orientation="horizontal"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-                    <RadioButton
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_margin="5dp"
-                        android:text="Good"/>
-                    <RadioButton
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_margin="5dp"
-                        android:text="Medium"/>
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
 
                     <RadioButton
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_margin="5dp"
-                        android:text="Poor"/>
+                        android:text="Good" />
+
                     <RadioButton
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_margin="5dp"
-                        android:text="Bad"/>
+                        android:text="Medium" />
+
+                    <RadioButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="5dp"
+                        android:text="Poor" />
+
+                    <RadioButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="5dp"
+                        android:text="Bad" />
                 </RadioGroup>
 
                 <TextView
-                    android:textSize="20dp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Food Price"
-                    />
+                    android:layout_marginTop="24dp"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Body2"/>
 
                 <RadioGroup
                     android:id="@+id/radio_answer_6"
-                    android:orientation="horizontal"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-                    <RadioButton
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_margin="5dp"
-                        android:text="Good"/>
-                    <RadioButton
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_margin="5dp"
-                        android:text="Medium"/>
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
 
                     <RadioButton
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_margin="5dp"
-                        android:text="Poor"/>
+                        android:text="Good" />
+
                     <RadioButton
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_margin="5dp"
-                        android:text="Bad"/>
+                        android:text="Medium" />
+
+                    <RadioButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="5dp"
+                        android:text="Poor" />
+
+                    <RadioButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="5dp"
+                        android:text="Bad" />
                 </RadioGroup>
 
             </LinearLayout>
-            <Button
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/feddback_submit_bt"
-                android:layout_gravity="end"
-                android:text="Submit"
-                android:layout_margin="20dp"
-                android:textSize="15dp"/>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/submit"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:layout_marginStart="36dp"
+                android:layout_marginTop="32dp"
+                android:layout_marginEnd="36dp"
+                android:layout_marginBottom="16dp"
+                android:clickable="true"
+                android:focusable="true"
+                app:cardBackgroundColor="@color/colorAccent"
+                android:onClick="sendFeedback"
+                app:cardCornerRadius="24dp">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:clickable="false"
+                    android:padding="16dp"
+                    android:text="SUBMIT FEEDBACK"
+                    android:textAlignment="center"
+                    android:background="?selectableItemBackgroundBorderless"
+                    android:textColor="@color/white" />
+
+            </androidx.cardview.widget.CardView>
 
         </LinearLayout>
-
 
     </ScrollView>
 

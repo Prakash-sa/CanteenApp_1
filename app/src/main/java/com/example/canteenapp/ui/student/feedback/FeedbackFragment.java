@@ -1,25 +1,37 @@
 package com.example.canteenapp.ui.student.feedback;
 
+import android.content.Context;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProviders;
 
 import com.example.canteenapp.Adapter.Feedback;
 import com.example.canteenapp.R;
+import com.example.canteenapp.ui.student.StudentMainActivity;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
+import java.util.Date;
 import java.util.HashMap;
+import java.util.Map;
 
 public class FeedbackFragment extends Fragment {
 
@@ -28,8 +40,10 @@ public class FeedbackFragment extends Fragment {
     private DatabaseReference myRef = database.getReference("Students");
     private HashMap<String,String>radioanswer=new HashMap<String,String>();
 
-    private EditText feedback_text;
-    private Button submit_bt;
+    private View root;
+    private Context context;
+    private EditText feedback;
+    private TextView charCount;
     private RadioGroup radioGroup;
     private RadioButton radioButton;
 
@@ -37,71 +51,77 @@ public class FeedbackFragment extends Fragment {
                              ViewGroup container, Bundle savedInstanceState) {
         feedbackViewModel =
                 ViewModelProviders.of(this).get(FeedbackViewModel.class);
-        final View root = inflater.inflate(R.layout.fragment_feedback, container, false);
-        feedback_text=root.findViewById(R.id.feddback_edit_text);
-        submit_bt=root.findViewById(R.id.feddback_submit_bt);
-        submit_bt.setOnClickListener(new View.OnClickListener() {
+        root = inflater.inflate(R.layout.fragment_feedback, container, false);
+        context = root.getContext();
+
+        ((TextView) root.findViewById(R.id.mail)).setText(StudentMainActivity.user.getEmail());
+        charCount = (TextView) root.findViewById(R.id.char_count);
+        feedback = (EditText) root.findViewById(R.id.feedback);
+        CardView submit = (CardView) root.findViewById(R.id.submit);
+
+        submit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String feedback_result=feedback_text.getText().toString();
+                sendFeedback();
+            }
+        });
 
-                radioGroup=root.findViewById(R.id.radio_answer_1);
-                int selected_id_1=radioGroup.getCheckedRadioButtonId();
-                radioButton=root.findViewById(selected_id_1);
-                if(radioButton.getText()!=null)
-                radioanswer.put("Food Quality",radioButton.getText().toString());
-                else
-                    radioanswer.put("Food Quality","Good");
+        feedback.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
 
-                radioGroup=root.findViewById(R.id.radio_answer_2);
-                selected_id_1=radioGroup.getCheckedRadioButtonId();
-                radioButton=root.findViewById(selected_id_1);
-                if(radioButton.getText()!=null)
-                radioanswer.put("Food Quantity",radioButton.getText().toString());
-                else
-                    radioanswer.put("Food Quantity","Good");
+            }
 
-                radioGroup=root.findViewById(R.id.radio_answer_3);
-                selected_id_1=radioGroup.getCheckedRadioButtonId();
-                radioButton=root.findViewById(selected_id_1);
-                if(radioButton.getText()!=null)
-                radioanswer.put("Mess are Hygienic",radioButton.getText().toString());
-                else
-                    radioanswer.put("Mess are Hygienic","Good");
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                int l = s.length();
+                charCount.setText("" + l);
+                if (l > 400) ((LinearLayout) feedback.getParent()).setBackgroundResource(R.drawable.border_error);
+                else ((LinearLayout) feedback.getParent()).setBackgroundResource(R.drawable.border_normal);
+            }
 
-                radioGroup=root.findViewById(R.id.radio_answer_4);
-                selected_id_1=radioGroup.getCheckedRadioButtonId();
-                radioButton=root.findViewById(selected_id_1);
-                if(radioButton.getText()!=null)
-                radioanswer.put("Food Hygienic",radioButton.getText().toString());
-                else
-                    radioanswer.put("Food Hygienic","Good");
+            @Override
+            public void afterTextChanged(Editable s) {
 
-                radioGroup=root.findViewById(R.id.radio_answer_5);
-                selected_id_1=radioGroup.getCheckedRadioButtonId();
-                radioButton=root.findViewById(selected_id_1);
-                if(radioButton.getText()!=null)
-                radioanswer.put("Utensils Hygienic",radioButton.getText().toString());
-                else
-                    radioanswer.put("Utensils Hygienic","Good");
-
-                radioGroup=root.findViewById(R.id.radio_answer_6);
-                selected_id_1=radioGroup.getCheckedRadioButtonId();
-                radioButton=root.findViewById(selected_id_1);
-                if(radioButton.getText()!=null)
-                radioanswer.put("Food Price",radioButton.getText().toString());
-                else
-                    radioanswer.put("Food Price","Good");
-
-
-                if(feedback_result!=null){
-                    Toast.makeText(getContext(),"Success",Toast.LENGTH_LONG).show();
-                    Feedback feedback=new Feedback(feedback_result,radioanswer);
-                    myRef.child("Feedback").child("mess_id").setValue(feedback);
-                }
             }
         });
 
         return root;
+    }
+
+    private void sendFeedback() {
+
+        String email = ((TextView) root.findViewById(R.id.mail)).getText().toString();
+        String feed = feedback.getText().toString();
+
+        if (feed.equals("")) {
+            ((EditText) root.findViewById(R.id.feedback)).setError("You are forgetting the feedback!");
+            return;
+        }
+
+        if (feed.length() > 400) {
+            feedback.setError("Your feedback is large. Remove some text");
+            return;
+        }
+
+//        DatabaseReference dbRef = FirebaseDatabase.getInstance().getReference("feedback/" + Home.user.getUid());
+//
+//        Map<String, Object> data = new HashMap<>();
+//        data.put("email", email);
+//        data.put((new Date()).toLocaleString(), feed);
+//
+//        dbRef.updateChildren(data).addOnCompleteListener(new OnCompleteListener<Void>() {
+//            @Override
+//            public void onComplete(@NonNull Task<Void> task) {
+//                if (task.isSuccessful()) {
+//                    Toast.makeText(Feedback.this, "Feedback submitted", Toast.LENGTH_LONG).show();
+//                    finish();
+//                } else {
+//                    Toast.makeText(Feedback.this, "Please try again later", Toast.LENGTH_LONG).show();
+//                    try { Log.d(TAG, "onComplete: "+task.getException().getLocalizedMessage()); } catch (Exception e) { e.printStackTrace(); }
+//                }
+//            }
+//        });
+
     }
 }
