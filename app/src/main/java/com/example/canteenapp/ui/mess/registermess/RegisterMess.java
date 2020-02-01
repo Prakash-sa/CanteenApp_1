@@ -3,7 +3,10 @@ package com.example.canteenapp.ui.mess.registermess;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.ContentResolver;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -13,8 +16,10 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.bumptech.glide.Glide;
 import com.example.canteenapp.R;
 import com.example.canteenapp.model.Account;
+import com.example.canteenapp.model.GetBitmapfromUri;
 import com.example.canteenapp.ui.mess.MessMainActivity;
 import com.google.android.gms.tasks.OnCanceledListener;
 import com.google.android.gms.tasks.OnFailureListener;
@@ -45,7 +50,11 @@ public class RegisterMess extends AppCompatActivity {
         if (user != null) {
             name.setText(user.getDisplayName());
             email.setText(user.getEmail());
-            dp.setImageURI(user.getPhotoUrl());
+            //Bitmap bmp= BitmapFactory.decodeStream(ContentResolver.);
+            GetBitmapfromUri getBitmapfromUri=new GetBitmapfromUri();
+            //dp.setImageBitmap(getBitmapfromUri.getImageBitmap(user.getPhotoUrl().toString()));
+            Glide.with(this).load(user.getPhotoUrl()).into(dp);
+           // dp.setImageURI(user.getPhotoUrl());
         } else {
             Toast.makeText(this, "Something is not right. Please restart the app.", Toast.LENGTH_LONG).show();
         }

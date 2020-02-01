@@ -12,6 +12,7 @@ import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 import androidx.fragment.app.FragmentManager;
 
+import com.bumptech.glide.Glide;
 import com.example.canteenapp.Logout;
 import com.example.canteenapp.R;
 import com.example.canteenapp.ui.ChoiceActivity;
@@ -31,8 +32,14 @@ import androidx.appcompat.widget.Toolbar;
 
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 public class StudentMainActivity extends AppCompatActivity {
+
+    private ImageView nav_image;
+    private TextView nav_name,nav_email;
 
     private AppBarConfiguration mAppBarConfiguration;
     private Fragment myFragment=null;
@@ -46,6 +53,23 @@ public class StudentMainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        user = FirebaseAuth.getInstance().getCurrentUser();
+
+
+        navigationView = (NavigationView) findViewById(R.id.nav_view);
+        View hView = navigationView.getHeaderView(0);
+
+        nav_image=hView.findViewById(R.id.nav_imageView_student);
+        nav_name=hView.findViewById(R.id.nav_text_name_student);
+        nav_email=hView.findViewById(R.id.nav_email_student);
+
+        if(user!=null){
+            Glide.with(this).load(user.getPhotoUrl()).into(nav_image);
+            nav_name.setText(user.getDisplayName());
+            nav_email.setText(user.getEmail());
+        }
+
+
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
@@ -69,7 +93,8 @@ public class StudentMainActivity extends AppCompatActivity {
         NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
         NavigationUI.setupWithNavController(navigationView, navController);
 
-        user = FirebaseAuth.getInstance().getCurrentUser();
+
+
     }
 
     @Override
