@@ -5,6 +5,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -12,7 +13,11 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProviders;
 
 import com.example.canteenapp.R;
+import com.example.canteenapp.model.MessDatabaseExtrasBreakfast;
+import com.example.canteenapp.model.MessDatabaseExtrasDinner;
 import com.example.canteenapp.model.MessDatabaseExtrasLunch;
+import com.example.canteenapp.model.MessDatabaseMenuBreakfast;
+import com.example.canteenapp.model.MessDatabaseMenuDinner;
 import com.example.canteenapp.model.MessDatabaseMenuLunch;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -20,20 +25,39 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import org.lucasr.twowayview.TwoWayView;
+
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.List;
 import java.util.Locale;
 
 public class HomeFragment extends Fragment {
 
-    private TextView textView1,textView2,textView3,textView4,textView5,textView6,textView7,textView8,textView9,textView10;
-    private TextView extratextView1,extratextView2,extratextView3,extratextView4,extratextView5,extratextView6,extratextView7,extratextView8,extratextView9,extratextView10;
-    private String today;
     private MessDatabaseMenuLunch messDatabaseMenuLunch;
+    private MessDatabaseMenuBreakfast messDatabaseMenuBreakfast;
+    private MessDatabaseMenuDinner messDatabaseMenuDinner;
+    private MessDatabaseExtrasBreakfast messDatabaseExtrasBreakfast;
+    private MessDatabaseExtrasDinner messDatabaseExtrasDinner;
     private MessDatabaseExtrasLunch messDatabaseExtrasLunch;
-    private HomeViewModel homeViewModel;
+
     private FirebaseDatabase database = FirebaseDatabase.getInstance();
     private DatabaseReference myRef = database.getReference("Mess");
+    private String today;
+    private TwoWayView breakfast_menu_listView,lunch_menu_listView,dinner_menu_listView,breakfast_extra_listView,lunch_extra_listView,dinner_extra_listView;
+    ArrayAdapter<String> adapter1,adapter2,adapter3,adapter4,adapter5,adapter6;
+    private List<String> items1=new ArrayList<>();
+    private List<String>items2=new ArrayList<>();
+    private List<String>items3=new ArrayList<>();
+    private List<String>items4=new ArrayList<>();
+    private List<String>items5=new ArrayList<>();
+    private List<String>items6=new ArrayList<>();
+
+
+    private TextView textView1,textView2,textView3,textView4,textView5,textView6,textView7,textView8,textView9,textView10;
+    private TextView extratextView1,extratextView2,extratextView3,extratextView4,extratextView5,extratextView6,extratextView7,extratextView8,extratextView9,extratextView10;
+    private HomeViewModel homeViewModel;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
