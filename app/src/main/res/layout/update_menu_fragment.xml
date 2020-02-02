@@ -3,127 +3,347 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".ui.mess.updatemenu.UpdateMenu">
-<ScrollView
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content">
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical">
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        >
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="update next menu"
-            android:id="@+id/update_next_menu"/>
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/update_next_extra"
-            android:text="update_next_extra"/>
-    </LinearLayout>
 
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        >
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Menu"/>
-
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Monday"
-            android:id="@+id/bt_menu_monday"/>
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Tuesday"
-            android:id="@+id/bt_menu_tuesday"/>
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Wednesday"
-            android:id="@+id/bt_menu_wednesday"/>
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Thursday"
-            android:id="@+id/bt_menu_thursday"/>
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Friday"
-            android:id="@+id/bt_menu_friday"/>
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Saturday"
-            android:id="@+id/bt_menu_saturday"/>
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Sunday"
-            android:id="@+id/bt_menu_sunday"/>
-    </LinearLayout>
+    <ScrollView
+        android:scrollbars="none"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
         <LinearLayout
-            android:layout_width="wrap_content"
+            android:background="@color/colorAccent"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            >
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Extras"/>
+            android:orientation="vertical">
 
-            <Button
+            <LinearLayout
+                android:visibility="gone"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <Button
+                    android:id="@+id/update_next_menu"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="update next menu" />
+
+                <Button
+                    android:id="@+id/update_next_extra"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="update_next_extra" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:visibility="gone"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Monday"
-                android:id="@+id/bt_extras_monday"/>
-            <Button
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Menu" />
+
+                <Button
+                    android:id="@+id/bt_menu_monday"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Monday" />
+
+                <Button
+                    android:id="@+id/bt_menu_tuesday"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Tuesday" />
+
+                <Button
+                    android:id="@+id/bt_menu_wednesday"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Wednesday" />
+
+                <Button
+                    android:id="@+id/bt_menu_thursday"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Thursday" />
+
+                <Button
+                    android:id="@+id/bt_menu_friday"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Friday" />
+
+                <Button
+                    android:id="@+id/bt_menu_saturday"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Saturday" />
+
+                <Button
+                    android:id="@+id/bt_menu_sunday"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Sunday" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:visibility="gone"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Tuesday"
-                android:id="@+id/bt_extras_tuesday"/>
-            <Button
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Wednesday"
-                android:id="@+id/bt_extras_wednesday"/>
-            <Button
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Thursday"
-                android:id="@+id/bt_extras_thursday"/>
-            <Button
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Friday"
-                android:id="@+id/bt_extras_friday"/>
-            <Button
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Saturday"
-                android:id="@+id/bt_extras_saturday"/>
-            <Button
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Sunday"
-                android:id="@+id/bt_extras_sunday"/>
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Extras" />
+
+                <Button
+                    android:id="@+id/bt_extras_monday"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Monday" />
+
+                <Button
+                    android:id="@+id/bt_extras_tuesday"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Tuesday" />
+
+                <Button
+                    android:id="@+id/bt_extras_wednesday"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Wednesday" />
+
+                <Button
+                    android:id="@+id/bt_extras_thursday"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Thursday" />
+
+                <Button
+                    android:id="@+id/bt_extras_friday"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Friday" />
+
+                <Button
+                    android:id="@+id/bt_extras_saturday"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Saturday" />
+
+                <Button
+                    android:id="@+id/bt_extras_sunday"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Sunday" />
+            </LinearLayout>
+
+            <androidx.cardview.widget.CardView
+                android:layout_marginTop="16dp"
+                app:cardCornerRadius="16dp"
+                android:elevation="16dp"
+                app:cardBackgroundColor="@color/white"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <CalendarView
+                        android:id="@+id/select_date"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent" />
+
+                    <RadioGroup
+                        android:id="@+id/type"
+                        android:gravity="center_horizontal"
+                        android:orientation="horizontal"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <RadioButton
+                            android:id="@+id/meal_radio"
+                            android:checked="false"
+                            android:text="Meal"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" />
+
+                        <RadioButton
+                            android:id="@+id/extra_radio"
+                            android:checked="false"
+                            android:layout_marginStart="24dp"
+                            android:text="Radio"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" />
+
+                    </RadioGroup>
+
+                    <androidx.cardview.widget.CardView
+                        android:elevation="0dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <LinearLayout
+                            android:layout_marginTop="24dp"
+                            android:layout_marginBottom="24dp"
+                            android:orientation="horizontal"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+                            <androidx.cardview.widget.CardView
+                                app:cardCornerRadius="8dp"
+                                app:cardElevation="4dp"
+                                android:layout_margin="8dp"
+                                android:layout_weight="1"
+                                android:layout_width="0dp"
+                                app:cardBackgroundColor="@color/colorAccent"
+                                android:layout_height="wrap_content">
+
+                                <RelativeLayout
+                                    android:layout_margin="4dp"
+                                    android:orientation="horizontal"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="96dp">
+
+                                    <TextView
+                                        android:drawableStart="@drawable/edit"
+                                        android:layout_alignParentBottom="true"
+                                        android:text="Breakfast"
+                                        android:textAlignment="center"
+                                        android:textColor="@color/white"
+                                        android:maxLines="1"
+                                        android:padding="5dp"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="32dp"/>
+
+                                    <ImageView
+                                        android:id="@+id/breakfast"
+                                        android:clickable="true"
+                                        android:focusable="true"
+                                        android:src="@drawable/ic_sun"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="96dp"
+                                        android:paddingBottom="32dp"
+                                        android:background="?selectableItemBackgroundBorderless"
+                                        android:contentDescription="Edit breakfast menu" />
+
+                                </RelativeLayout>
+
+                            </androidx.cardview.widget.CardView>
+
+                            <androidx.cardview.widget.CardView
+                                app:cardCornerRadius="8dp"
+                                app:cardElevation="4dp"
+                                android:layout_margin="8dp"
+                                android:layout_weight="1"
+                                android:layout_width="0dp"
+                                app:cardBackgroundColor="@color/colorAccent"
+                                android:layout_height="wrap_content">
+
+                                <RelativeLayout
+                                    android:layout_margin="4dp"
+                                    android:orientation="horizontal"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="96dp">
+
+                                    <TextView
+                                        android:drawableStart="@drawable/edit"
+                                        android:layout_alignParentBottom="true"
+                                        android:text="Lunch"
+                                        android:textAlignment="center"
+                                        android:textColor="@color/white"
+                                        android:maxLines="1"
+                                        android:padding="5dp"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="32dp"/>
+
+                                    <ImageView
+                                        android:id="@+id/lunch"
+                                        android:clickable="true"
+                                        android:focusable="true"
+                                        android:src="@drawable/ic_sun"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="96dp"
+                                        android:paddingBottom="32dp"
+                                        android:background="?selectableItemBackgroundBorderless"
+                                        android:contentDescription="Edit lunch menu" />
+
+                                </RelativeLayout>
+
+                            </androidx.cardview.widget.CardView>
+
+                            <androidx.cardview.widget.CardView
+                                app:cardCornerRadius="8dp"
+                                app:cardElevation="4dp"
+                                android:layout_margin="8dp"
+                                android:layout_weight="1"
+                                android:layout_width="0dp"
+                                app:cardBackgroundColor="@color/colorAccent"
+                                android:layout_height="wrap_content">
+
+                                <RelativeLayout
+                                    android:layout_margin="4dp"
+                                    android:orientation="horizontal"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="96dp">
+
+                                    <TextView
+                                        android:drawableStart="@drawable/edit"
+                                        android:layout_alignParentBottom="true"
+                                        android:text="Dinner"
+                                        android:textAlignment="center"
+                                        android:textColor="@color/white"
+                                        android:maxLines="1"
+                                        android:padding="5dp"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="32dp"/>
+
+                                    <ImageView
+                                        android:id="@+id/dinner"
+                                        android:clickable="true"
+                                        android:focusable="true"
+                                        android:src="@drawable/ic_sun"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="96dp"
+                                        android:paddingBottom="32dp"
+                                        android:background="?selectableItemBackgroundBorderless"
+                                        android:contentDescription="Edit dinner menu" />
+
+                                </RelativeLayout>
+
+                            </androidx.cardview.widget.CardView>
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:alpha="0.6"
+                            android:id="@+id/disable"
+                            android:background="@color/white"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="horizontal" />
+
+                    </androidx.cardview.widget.CardView>
+
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+
+            <LinearLayout
+                android:elevation="10dp"
+                android:background="@color/white"
+                android:layout_marginTop="-16dp"
+                android:layout_width="match_parent"
+                android:layout_height="16dp" />
+
         </LinearLayout>
 
-
-
-    </LinearLayout>
-
-</ScrollView>
+    </ScrollView>
 </FrameLayout>

@@ -3,32 +3,42 @@ package com.example.canteenapp.ui.mess.updatemenu;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 
+import android.app.AlarmManager;
 import android.content.Intent;
+import android.icu.util.Calendar;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.CalendarView;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.RadioGroup;
 import android.widget.TextView;
 
 import com.example.canteenapp.R;
 import com.example.canteenapp.ui.mess.home.HomeViewModel;
 import com.example.canteenapp.ui.mess.updatedatabase.UpdateDatabase;
 
+import java.util.Date;
+
 import static com.example.canteenapp.ui.mess.home.HomeFragment.getCurrentDay;
 
 public class UpdateMenu extends Fragment {
 
-    private String today;
-    private Intent intent;
+    private LinearLayout cover;
+    private final String TAG = "UpdateMenu";
+    private long selectedDate = 0;
+    private String TYPE = "", TIME = "", DAY = "";
+    private final String[] weekName = { "Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"};
     private UpdateMenuViewModel mViewModel;
-    private Button update_next_menu,update_next_extra,bt_menu_monday,bt_menu_tuesday,bt_menu_wednesday,bt_menu_thursday,bt_menu_friday,bt_menu_saturday,bt_menu_sunday;
-    private Button bt_extra_monday,bt_extra_tuesday,bt_extra_wednesday,bt_extra_thursday,bt_extra_friday,bt_extra_saturday,bt_extra_sunday;
 
     public static UpdateMenu newInstance() {
         return new UpdateMenu();
@@ -38,173 +48,70 @@ public class UpdateMenu extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
 
-        today=getCurrentDay();
         mViewModel =
                 ViewModelProviders.of(this).get(UpdateMenuViewModel.class);
         View root = inflater.inflate(R.layout.update_menu_fragment, container, false);
-        update_next_extra=root.findViewById(R.id.update_next_extra);
-        update_next_menu=root.findViewById(R.id.update_next_menu);
-        bt_menu_monday=root.findViewById(R.id.bt_menu_monday);
-        bt_menu_tuesday=root.findViewById(R.id.bt_menu_tuesday);
-        bt_menu_wednesday=root.findViewById(R.id.bt_menu_wednesday);
-        bt_menu_thursday=root.findViewById(R.id.bt_menu_thursday);
-        bt_menu_friday=root.findViewById(R.id.bt_menu_friday);
-        bt_menu_saturday=root.findViewById(R.id.bt_menu_saturday);
-        bt_menu_sunday=root.findViewById(R.id.bt_menu_sunday);
 
-        bt_extra_monday=root.findViewById(R.id.bt_extras_monday);
-        bt_extra_tuesday=root.findViewById(R.id.bt_extras_tuesday);
-        bt_extra_wednesday=root.findViewById(R.id.bt_extras_wednesday);
-        bt_extra_thursday=root.findViewById(R.id.bt_extras_thursday);
-        bt_extra_friday=root.findViewById(R.id.bt_extras_friday);
-        bt_extra_saturday=root.findViewById(R.id.bt_extras_saturday);
-        bt_extra_sunday=root.findViewById(R.id.bt_extras_sunday);
+        CalendarView calendar = root.findViewById(R.id.select_date);
+        RadioGroup type = root.findViewById(R.id.type);
+        ImageView breakfast = root.findViewById(R.id.breakfast);
+        ImageView lunch = root.findViewById(R.id.lunch);
+        ImageView dinner = root.findViewById(R.id.dinner);
+        cover = root.findViewById(R.id.disable);
 
-        update_next_menu.setOnClickListener(new View.OnClickListener() {
+
+        // initialise calendar
+        calendar.setDate((new Date()).getTime() - AlarmManager.INTERVAL_DAY);
+        calendar.setMinDate((new Date()).getTime());
+        calendar.setMaxDate((new Date()).getTime() + 28 * AlarmManager.INTERVAL_DAY);
+
+        calendar.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
             @Override
-            public void onClick(View v) {
-                intent=new Intent(getContext(), UpdateDatabase.class);
-                intent.putExtra("type","menu");
-                intent.putExtra("day",today);
-                startActivity(intent);
-            }
-        });
-        update_next_extra.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                intent=new Intent(getContext(), UpdateDatabase.class);
-                intent.putExtra("type","extra");
-                intent.putExtra("day",today);
-                startActivity(intent);
-            }
-        });
-        bt_menu_monday.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                intent=new Intent(getContext(), UpdateDatabase.class);
-                intent.putExtra("type","menu");
-                intent.putExtra("day","Monday");
-                startActivity(intent);
-            }
-        });
-        bt_menu_tuesday.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                intent=new Intent(getContext(), UpdateDatabase.class);
-                intent.putExtra("type","menu");
-                intent.putExtra("day","Tuesday");
-                startActivity(intent);
-            }
-        });
-        bt_menu_wednesday.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                intent=new Intent(getContext(), UpdateDatabase.class);
-                intent.putExtra("type","menu");
-                intent.putExtra("day","Wednesday");
-                startActivity(intent);
-            }
-        });
-        bt_menu_thursday.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                intent=new Intent(getContext(), UpdateDatabase.class);
-                intent.putExtra("type","menu");
-                intent.putExtra("day","Thursday");
-                startActivity(intent);
-            }
-        });
-        bt_menu_friday.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                intent=new Intent(getContext(), UpdateDatabase.class);
-                intent.putExtra("type","menu");
-                intent.putExtra("day","Friday");
-                startActivity(intent);
-            }
-        });
-        bt_menu_saturday.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                intent=new Intent(getContext(), UpdateDatabase.class);
-                intent.putExtra("type","menu");
-                intent.putExtra("day","Saturday");
-                startActivity(intent);
-            }
-        });
-        bt_menu_sunday.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                intent=new Intent(getContext(), UpdateDatabase.class);
-                intent.putExtra("type","menu");
-                intent.putExtra("day","Sunday");
-                startActivity(intent);
-            }
-        });
-        bt_extra_monday.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                intent=new Intent(getContext(), UpdateDatabase.class);
-                intent.putExtra("type","extra");
-                intent.putExtra("day","Monday");
-                startActivity(intent);
-            }
-        });
-        bt_extra_tuesday.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                intent=new Intent(getContext(), UpdateDatabase.class);
-                intent.putExtra("type","extra");
-                intent.putExtra("day","Tuesday");
-                startActivity(intent);
-            }
-        });
-        bt_extra_wednesday.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                intent=new Intent(getContext(), UpdateDatabase.class);
-                intent.putExtra("type","extra");
-                intent.putExtra("day","Wednesday");
-                startActivity(intent);
-            }
-        });
-        bt_extra_thursday.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                intent=new Intent(getContext(), UpdateDatabase.class);
-                intent.putExtra("type","extra");
-                intent.putExtra("day","Thursday");
-                startActivity(intent);
-            }
-        });
-        bt_extra_friday.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                intent=new Intent(getContext(), UpdateDatabase.class);
-                intent.putExtra("type","extra");
-                intent.putExtra("day","Friday");
-                startActivity(intent);
-            }
-        });
-        bt_extra_saturday.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                intent=new Intent(getContext(), UpdateDatabase.class);
-                intent.putExtra("type","extra");
-                intent.putExtra("day","Saturday");
-                startActivity(intent);
-            }
-        });
-        bt_extra_sunday.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                intent=new Intent(getContext(), UpdateDatabase.class);
-                intent.putExtra("type","extra");
-                intent.putExtra("day","Sunday");
-                startActivity(intent);
+            public void onSelectedDayChange(@NonNull CalendarView view, int year, int month, int dayOfMonth) {
+                Calendar calendar = Calendar.getInstance();
+                calendar.set(year, month, dayOfMonth);
+                int dayOfWeek = calendar.get(Calendar.DAY_OF_WEEK) - 1;
+                Log.d(TAG, "Day-text : " + weekName[dayOfWeek]);
+                DAY = weekName[dayOfWeek];
+                selectedDate = view.getDate();
+                enableButtons();
             }
         });
 
+        breakfast.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                TIME = "breakfast";
+                gotoEdit();
+            }
+        });
+
+        lunch.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                TIME = "lunch";
+                gotoEdit();
+            }
+        });
+
+        dinner.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                TIME = "dinner";
+                gotoEdit();
+            }
+        });
+
+        type.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup group, int checkedId) {
+                if (checkedId == R.id.meal_radio)
+                    TYPE = "menu";
+                else if (checkedId == R.id.extra_radio)
+                    TYPE = "extra";
+                enableButtons();
+            }
+        });
 
         return root;
     }
@@ -215,6 +122,19 @@ public class UpdateMenu extends Fragment {
         mViewModel = ViewModelProviders.of(this).get(UpdateMenuViewModel.class);
 
         // TODO: Use the ViewModel
+    }
+
+    private void gotoEdit() {
+        startActivity(new Intent(getContext(), UpdateDatabase.class)
+                .putExtra("type", TYPE)
+                .putExtra("day", DAY).putExtra("time", TIME));
+    }
+
+    private void enableButtons() {
+        if (!DAY.equals("") && !TYPE.equals(""))
+            cover.setVisibility(View.GONE);
+        else
+            cover.setVisibility(View.VISIBLE);
     }
 
 }
