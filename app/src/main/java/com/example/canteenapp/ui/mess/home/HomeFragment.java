@@ -338,7 +338,6 @@ public class HomeFragment extends Fragment {
         SimpleDateFormat dayFormat = new SimpleDateFormat("EEEE", Locale.US);
         Calendar calendar = Calendar.getInstance();
         return dayFormat.format(calendar.getTime());
-
     }
 
 }
