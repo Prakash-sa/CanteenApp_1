@@ -63,16 +63,12 @@ public class PaymentAcitivity extends AppCompatActivity {
             Toast.makeText(PaymentAcitivity.this,"No UPI app found, please install one to continue",Toast.LENGTH_SHORT).show();
         }
     }
+
+
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         Log.e("main ", "response "+resultCode );
-        /*
-       E/main: response -1
-       E/UPI: onActivityResult: txnId=AXI4a3428ee58654a938811812c72c0df45&responseCode=00&Status=SUCCESS&txnRef=922118921612
-       E/UPIPAY: upiPaymentDataOperation: txnId=AXI4a3428ee58654a938811812c72c0df45&responseCode=00&Status=SUCCESS&txnRef=922118921612
-       E/UPI: payment successfull: 922118921612
-         */
         switch (requestCode) {
             case UPI_PAYMENT:
                 if ((RESULT_OK == resultCode) || (resultCode == 11)) {

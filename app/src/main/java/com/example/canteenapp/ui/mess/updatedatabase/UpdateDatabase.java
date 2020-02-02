@@ -51,6 +51,7 @@ public class UpdateDatabase extends AppCompatActivity {
 
         final String type1=getIntent().getStringExtra("type");
         final String day=getIntent().getStringExtra("day");
+        final String timetype=getIntent().getStringExtra("time");
        // title.setText(type1);
 
         if(type1.equals("menu")){
@@ -70,7 +71,7 @@ public class UpdateDatabase extends AppCompatActivity {
             });
         }
         if(type1.equals("extra")){
-            myRef.child(type1).child(day).addValueEventListener(new ValueEventListener() {
+            myRef.child(type1).child(day).child(timetype).addValueEventListener(new ValueEventListener() {
                 @Override
                 public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                     messDatabaseExtrasLunch =dataSnapshot.getValue(MessDatabaseExtrasLunch.class);
@@ -125,7 +126,7 @@ public class UpdateDatabase extends AppCompatActivity {
 
 
                     messDatabaseMenuLunch =new MessDatabaseMenuLunch(arg1,arg2,arg3,arg4,arg5,arg6,arg7,arg8,arg9,arg10);
-                    myRef.child(type1).child(day).setValue(messDatabaseMenuLunch);
+                    myRef.child(type1).child(day).child(timetype).setValue(messDatabaseMenuLunch);
                     Toast.makeText(UpdateDatabase.this,"Updated",Toast.LENGTH_LONG).show();
                 }
                 if(type1.equals("extra")){
@@ -161,7 +162,7 @@ public class UpdateDatabase extends AppCompatActivity {
                     else arg10="null";
 
                     messDatabaseExtrasLunch =new MessDatabaseExtrasLunch(arg1,arg2,arg3,arg4,arg5,arg6,arg7,arg8,arg9,arg10);
-                    myRef.child(type1).child(day).setValue(messDatabaseExtrasLunch);
+                    myRef.child(type1).child(day).child(timetype).setValue(messDatabaseExtrasLunch);
                 }
             }
         });
