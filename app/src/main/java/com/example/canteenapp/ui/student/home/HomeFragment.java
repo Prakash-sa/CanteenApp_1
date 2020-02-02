@@ -1,6 +1,7 @@
 package com.example.canteenapp.ui.student.home;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -76,17 +77,19 @@ public class HomeFragment extends Fragment {
         dinner_extra_listView=root.findViewById(R.id.extra_dinner_listview);
 
         getfromfirabase();
-        additems();
-        setAdapterforlist();
 
         return root;
     }
 
     private void getfromfirabase(){
-        myRef.child("Mess").child("menu").child(today).child("Breakfast").addValueEventListener(new ValueEventListener() {
+        myRef.child("menu").child(today).child("Breakfast").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 messDatabaseMenuBreakfast=dataSnapshot.getValue(MessDatabaseMenuBreakfast.class);
+                Log.i("adfadf","set");
+                Log.i("Database",messDatabaseMenuBreakfast.getChapatiType());
+                additemsBreakfast();
+                setAdapterforlist();
             }
 
             @Override
@@ -95,10 +98,12 @@ public class HomeFragment extends Fragment {
             }
         });
 
-        myRef.child("Mess").child("menu").child(today).child("Lunch").addValueEventListener(new ValueEventListener() {
+        myRef.child("menu").child(today).child("Lunch").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 messDatabaseMenuLunch=dataSnapshot.getValue(MessDatabaseMenuLunch.class);
+                additemsMenuLunch();
+                setAdapterforlist();
             }
 
             @Override
@@ -106,10 +111,12 @@ public class HomeFragment extends Fragment {
 
             }
         });
-        myRef.child("Mess").child("menu").child(today).child("Dinner").addValueEventListener(new ValueEventListener() {
+        myRef.child("menu").child(today).child("Dinner").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 messDatabaseMenuDinner=dataSnapshot.getValue(MessDatabaseMenuDinner.class);
+                additemsMenuDinner();
+                setAdapterforlist();
             }
 
             @Override
@@ -117,10 +124,12 @@ public class HomeFragment extends Fragment {
 
             }
         });
-        myRef.child("Mess").child("extra").child(today).child("Breakfast").addValueEventListener(new ValueEventListener() {
+        myRef.child("extra").child(today).child("Breakfast").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 messDatabaseExtrasBreakfast=dataSnapshot.getValue(MessDatabaseExtrasBreakfast.class);
+                additemsExtraBreakfast();
+                setAdapterforlist();
             }
 
             @Override
@@ -129,10 +138,12 @@ public class HomeFragment extends Fragment {
             }
         });
 
-        myRef.child("Mess").child("extra").child(today).child("Lunch").addValueEventListener(new ValueEventListener() {
+        myRef.child("extra").child(today).child("Lunch").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 messDatabaseExtrasLunch=dataSnapshot.getValue(MessDatabaseExtrasLunch.class);
+                additemsExtraLunch();
+                setAdapterforlist();
             }
 
             @Override
@@ -141,10 +152,12 @@ public class HomeFragment extends Fragment {
             }
         });
 
-        myRef.child("Mess").child("extra").child(today).child("Dinner").addValueEventListener(new ValueEventListener() {
+        myRef.child("extra").child(today).child("Dinner").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 messDatabaseExtrasDinner=dataSnapshot.getValue(MessDatabaseExtrasDinner.class);
+                additemsExtraDinner();
+                setAdapterforlist();
             }
 
             @Override
@@ -155,65 +168,141 @@ public class HomeFragment extends Fragment {
 
     }
 
-    private void additems(){
-        if(messDatabaseExtrasDinner==null||messDatabaseExtrasLunch==null||messDatabaseExtrasBreakfast==null||messDatabaseMenuLunch==null||messDatabaseMenuBreakfast==null||messDatabaseMenuDinner==null)return;
+    private void additemsBreakfast() {
+        if ( messDatabaseMenuBreakfast == null )
+            return;
 
-        if(messDatabaseMenuBreakfast.getChapatiType()!=null)items1.add(messDatabaseMenuBreakfast.getChapatiType());
-        if(messDatabaseMenuBreakfast.getRiceType()!=null)items1.add(messDatabaseMenuBreakfast.getRiceType());
-        if(messDatabaseMenuBreakfast.getSabjiType()!=null)items1.add(messDatabaseMenuBreakfast.getSabjiType());
-        if(messDatabaseMenuBreakfast.getSaladType()!=null)items1.add(messDatabaseMenuBreakfast.getSaladType());
-        if(messDatabaseMenuBreakfast.getDallType()!=null)items1.add(messDatabaseMenuBreakfast.getDallType());
-        if(messDatabaseMenuBreakfast.getCurdType()!=null)items1.add(messDatabaseMenuBreakfast.getCurdType());
-        if(messDatabaseMenuBreakfast.getOptional1()!=null)items1.add(messDatabaseMenuBreakfast.getOptional1());
-        if(messDatabaseMenuBreakfast.getOptional2()!=null)items1.add(messDatabaseMenuBreakfast.getOptional2());
-        if(messDatabaseMenuBreakfast.getOptional3()!=null)items1.add(messDatabaseMenuBreakfast.getOptional3());
-        if(messDatabaseMenuBreakfast.getOptional4()!=null)items1.add(messDatabaseMenuBreakfast.getOptional4());
+        if (messDatabaseMenuBreakfast.getChapatiType() != null)
+            items1.add(messDatabaseMenuBreakfast.getChapatiType());
+        if (messDatabaseMenuBreakfast.getRiceType() != null)
+            items1.add(messDatabaseMenuBreakfast.getRiceType());
+        if (messDatabaseMenuBreakfast.getSabjiType() != null)
+            items1.add(messDatabaseMenuBreakfast.getSabjiType());
+        if (messDatabaseMenuBreakfast.getSaladType() != null)
+            items1.add(messDatabaseMenuBreakfast.getSaladType());
+        if (messDatabaseMenuBreakfast.getDallType() != null)
+            items1.add(messDatabaseMenuBreakfast.getDallType());
+        if (messDatabaseMenuBreakfast.getCurdType() != null)
+            items1.add(messDatabaseMenuBreakfast.getCurdType());
+        if (messDatabaseMenuBreakfast.getOptional1() != null)
+            items1.add(messDatabaseMenuBreakfast.getOptional1());
+        if (messDatabaseMenuBreakfast.getOptional2() != null)
+            items1.add(messDatabaseMenuBreakfast.getOptional2());
+        if (messDatabaseMenuBreakfast.getOptional3() != null)
+            items1.add(messDatabaseMenuBreakfast.getOptional3());
+        if (messDatabaseMenuBreakfast.getOptional4() != null)
+            items1.add(messDatabaseMenuBreakfast.getOptional4());
 
+        Log.i("Size of list",items1.size()+"");
+    }
 
-        if(messDatabaseMenuLunch.getChapatiType()!=null)items2.add(messDatabaseMenuLunch.getChapatiType());
-        if(messDatabaseMenuLunch.getRiceType()!=null)items2.add(messDatabaseMenuLunch.getRiceType());
-        if(messDatabaseMenuLunch.getSabjiType()!=null)items2.add(messDatabaseMenuLunch.getSabjiType());
-        if(messDatabaseMenuLunch.getSaladType()!=null)items2.add(messDatabaseMenuLunch.getSaladType());
-        if(messDatabaseMenuLunch.getDallType()!=null)items2.add(messDatabaseMenuLunch.getDallType());
-        if(messDatabaseMenuLunch.getCurdType()!=null)items2.add(messDatabaseMenuLunch.getCurdType());
-        if(messDatabaseMenuLunch.getOptional1()!=null)items2.add(messDatabaseMenuLunch.getOptional1());
-        if(messDatabaseMenuLunch.getOptional2()!=null)items2.add(messDatabaseMenuLunch.getOptional2());
-        if(messDatabaseMenuLunch.getOptional3()!=null)items2.add(messDatabaseMenuLunch.getOptional3());
-        if(messDatabaseMenuLunch.getOptional4()!=null)items2.add(messDatabaseMenuLunch.getOptional4());
+    private void additemsMenuLunch() {
 
-        if(messDatabaseMenuDinner.getChapatiType()!=null)items3.add(messDatabaseMenuDinner.getChapatiType());
-        if(messDatabaseMenuDinner.getRiceType()!=null)items3.add(messDatabaseMenuDinner.getRiceType());
-        if(messDatabaseMenuDinner.getSabjiType()!=null)items3.add(messDatabaseMenuDinner.getSabjiType());
-        if(messDatabaseMenuDinner.getSaladType()!=null)items3.add(messDatabaseMenuDinner.getSaladType());
-        if(messDatabaseMenuDinner.getDallType()!=null)items3.add(messDatabaseMenuDinner.getDallType());
-        if(messDatabaseMenuDinner.getCurdType()!=null)items3.add(messDatabaseMenuDinner.getCurdType());
-        if(messDatabaseMenuDinner.getOptional1()!=null)items3.add(messDatabaseMenuDinner.getOptional1());
-        if(messDatabaseMenuDinner.getOptional2()!=null)items3.add(messDatabaseMenuDinner.getOptional2());
-        if(messDatabaseMenuDinner.getOptional3()!=null)items3.add(messDatabaseMenuDinner.getOptional3());
-        if(messDatabaseMenuDinner.getOptional4()!=null)items3.add(messDatabaseMenuDinner.getOptional4());
+        if ( messDatabaseMenuLunch == null)
+            return;
+        if (messDatabaseMenuLunch.getChapatiType() != null)
+            items2.add(messDatabaseMenuLunch.getChapatiType());
+        if (messDatabaseMenuLunch.getRiceType() != null)
+            items2.add(messDatabaseMenuLunch.getRiceType());
+        if (messDatabaseMenuLunch.getSabjiType() != null)
+            items2.add(messDatabaseMenuLunch.getSabjiType());
+        if (messDatabaseMenuLunch.getSaladType() != null)
+            items2.add(messDatabaseMenuLunch.getSaladType());
+        if (messDatabaseMenuLunch.getDallType() != null)
+            items2.add(messDatabaseMenuLunch.getDallType());
+        if (messDatabaseMenuLunch.getCurdType() != null)
+            items2.add(messDatabaseMenuLunch.getCurdType());
+        if (messDatabaseMenuLunch.getOptional1() != null)
+            items2.add(messDatabaseMenuLunch.getOptional1());
+        if (messDatabaseMenuLunch.getOptional2() != null)
+            items2.add(messDatabaseMenuLunch.getOptional2());
+        if (messDatabaseMenuLunch.getOptional3() != null)
+            items2.add(messDatabaseMenuLunch.getOptional3());
+        if (messDatabaseMenuLunch.getOptional4() != null)
+            items2.add(messDatabaseMenuLunch.getOptional4());
 
-        if(messDatabaseExtrasBreakfast.getGheeType()!=null)items4.add(messDatabaseExtrasBreakfast.getGheeType());
-        if(messDatabaseExtrasBreakfast.getSweetType()!=null)items4.add(messDatabaseExtrasBreakfast.getSweetType());
-        if(messDatabaseExtrasBreakfast.getJuiceType()!=null)items4.add(messDatabaseExtrasBreakfast.getJuiceType());
-        if(messDatabaseExtrasBreakfast.getIceCreamType()!=null)items4.add(messDatabaseExtrasBreakfast.getIceCreamType());
-        if(messDatabaseExtrasBreakfast.getOptional5()!=null)items4.add(messDatabaseExtrasBreakfast.getOptional5());
-        if(messDatabaseExtrasBreakfast.getOptional6()!=null)items4.add(messDatabaseExtrasBreakfast.getOptional6());
-        if(messDatabaseExtrasBreakfast.getOptional1()!=null)items4.add(messDatabaseExtrasBreakfast.getOptional1());
-        if(messDatabaseExtrasBreakfast.getOptional2()!=null)items4.add(messDatabaseExtrasBreakfast.getOptional2());
-        if(messDatabaseExtrasBreakfast.getOptional3()!=null)items4.add(messDatabaseExtrasBreakfast.getOptional3());
-        if(messDatabaseExtrasBreakfast.getOptional4()!=null)items4.add(messDatabaseExtrasBreakfast.getOptional4());
+    }
 
-        if(messDatabaseExtrasLunch.getGheeType()!=null)items5.add(messDatabaseExtrasLunch.getGheeType());
-        if(messDatabaseExtrasLunch.getSweetType()!=null)items5.add(messDatabaseExtrasLunch.getSweetType());
-        if(messDatabaseExtrasLunch.getJuiceType()!=null)items5.add(messDatabaseExtrasLunch.getJuiceType());
-        if(messDatabaseExtrasLunch.getIceCreamType()!=null)items5.add(messDatabaseExtrasLunch.getIceCreamType());
-        if(messDatabaseExtrasLunch.getOptional5()!=null)items5.add(messDatabaseExtrasLunch.getOptional5());
-        if(messDatabaseExtrasLunch.getOptional6()!=null)items5.add(messDatabaseExtrasLunch.getOptional6());
-        if(messDatabaseExtrasLunch.getOptional1()!=null)items5.add(messDatabaseExtrasLunch.getOptional1());
-        if(messDatabaseExtrasLunch.getOptional2()!=null)items5.add(messDatabaseExtrasLunch.getOptional2());
-        if(messDatabaseExtrasLunch.getOptional3()!=null)items5.add(messDatabaseExtrasLunch.getOptional3());
-        if(messDatabaseExtrasLunch.getOptional4()!=null)items5.add(messDatabaseExtrasLunch.getOptional4());
+    private void additemsMenuDinner() {
+        if ( messDatabaseMenuDinner == null)
+            return;
+        if (messDatabaseMenuDinner.getChapatiType() != null)
+            items3.add(messDatabaseMenuDinner.getChapatiType());
+        if (messDatabaseMenuDinner.getRiceType() != null)
+            items3.add(messDatabaseMenuDinner.getRiceType());
+        if (messDatabaseMenuDinner.getSabjiType() != null)
+            items3.add(messDatabaseMenuDinner.getSabjiType());
+        if (messDatabaseMenuDinner.getSaladType() != null)
+            items3.add(messDatabaseMenuDinner.getSaladType());
+        if (messDatabaseMenuDinner.getDallType() != null)
+            items3.add(messDatabaseMenuDinner.getDallType());
+        if (messDatabaseMenuDinner.getCurdType() != null)
+            items3.add(messDatabaseMenuDinner.getCurdType());
+        if (messDatabaseMenuDinner.getOptional1() != null)
+            items3.add(messDatabaseMenuDinner.getOptional1());
+        if (messDatabaseMenuDinner.getOptional2() != null)
+            items3.add(messDatabaseMenuDinner.getOptional2());
+        if (messDatabaseMenuDinner.getOptional3() != null)
+            items3.add(messDatabaseMenuDinner.getOptional3());
+        if (messDatabaseMenuDinner.getOptional4() != null)
+            items3.add(messDatabaseMenuDinner.getOptional4());
 
+    }
+
+    private void additemsExtraBreakfast() {
+        if (messDatabaseExtrasBreakfast == null)
+            return;
+        if (messDatabaseExtrasBreakfast.getGheeType() != null)
+            items4.add(messDatabaseExtrasBreakfast.getGheeType());
+        if (messDatabaseExtrasBreakfast.getSweetType() != null)
+            items4.add(messDatabaseExtrasBreakfast.getSweetType());
+        if (messDatabaseExtrasBreakfast.getJuiceType() != null)
+            items4.add(messDatabaseExtrasBreakfast.getJuiceType());
+        if (messDatabaseExtrasBreakfast.getIceCreamType() != null)
+            items4.add(messDatabaseExtrasBreakfast.getIceCreamType());
+        if (messDatabaseExtrasBreakfast.getOptional5() != null)
+            items4.add(messDatabaseExtrasBreakfast.getOptional5());
+        if (messDatabaseExtrasBreakfast.getOptional6() != null)
+            items4.add(messDatabaseExtrasBreakfast.getOptional6());
+        if (messDatabaseExtrasBreakfast.getOptional1() != null)
+            items4.add(messDatabaseExtrasBreakfast.getOptional1());
+        if (messDatabaseExtrasBreakfast.getOptional2() != null)
+            items4.add(messDatabaseExtrasBreakfast.getOptional2());
+        if (messDatabaseExtrasBreakfast.getOptional3() != null)
+            items4.add(messDatabaseExtrasBreakfast.getOptional3());
+        if (messDatabaseExtrasBreakfast.getOptional4() != null)
+            items4.add(messDatabaseExtrasBreakfast.getOptional4());
+
+    }
+
+    private void additemsExtraLunch() {
+        if (messDatabaseExtrasLunch == null )
+            return;
+        if (messDatabaseExtrasLunch.getGheeType() != null)
+            items5.add(messDatabaseExtrasLunch.getGheeType());
+        if (messDatabaseExtrasLunch.getSweetType() != null)
+            items5.add(messDatabaseExtrasLunch.getSweetType());
+        if (messDatabaseExtrasLunch.getJuiceType() != null)
+            items5.add(messDatabaseExtrasLunch.getJuiceType());
+        if (messDatabaseExtrasLunch.getIceCreamType() != null)
+            items5.add(messDatabaseExtrasLunch.getIceCreamType());
+        if (messDatabaseExtrasLunch.getOptional5() != null)
+            items5.add(messDatabaseExtrasLunch.getOptional5());
+        if (messDatabaseExtrasLunch.getOptional6() != null)
+            items5.add(messDatabaseExtrasLunch.getOptional6());
+        if (messDatabaseExtrasLunch.getOptional1() != null)
+            items5.add(messDatabaseExtrasLunch.getOptional1());
+        if (messDatabaseExtrasLunch.getOptional2() != null)
+            items5.add(messDatabaseExtrasLunch.getOptional2());
+        if (messDatabaseExtrasLunch.getOptional3() != null)
+            items5.add(messDatabaseExtrasLunch.getOptional3());
+        if (messDatabaseExtrasLunch.getOptional4() != null)
+            items5.add(messDatabaseExtrasLunch.getOptional4());
+    }
+
+    private void additemsExtraDinner(){
+        if (messDatabaseExtrasDinner == null )
+            return;
         if(messDatabaseExtrasDinner.getGheeType()!=null)items6.add(messDatabaseExtrasDinner.getGheeType());
         if(messDatabaseExtrasDinner.getSweetType()!=null)items6.add(messDatabaseExtrasDinner.getSweetType());
         if(messDatabaseExtrasDinner.getJuiceType()!=null)items6.add(messDatabaseExtrasDinner.getJuiceType());
@@ -228,6 +317,7 @@ public class HomeFragment extends Fragment {
     }
 
     private void setAdapterforlist(){
+
         adapter1=new ArrayAdapter<>(getContext(),R.layout.listview_food,R.id.food_menu_textview,items1);
         breakfast_menu_listView.setAdapter(adapter1);
         adapter2=new ArrayAdapter<>(getContext(),R.layout.listview_food,R.id.food_menu_textview,items2);
