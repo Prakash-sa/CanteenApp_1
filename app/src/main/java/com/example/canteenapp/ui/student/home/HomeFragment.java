@@ -1,20 +1,16 @@
 package com.example.canteenapp.ui.student.home;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
-import android.widget.LinearLayout;
-import android.widget.ListView;
-import android.widget.TextView;
-import android.widget.Toast;
+import android.widget.ImageView;
 
-import androidx.annotation.Nullable;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
-import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 
 import com.example.canteenapp.R;
@@ -24,6 +20,9 @@ import com.example.canteenapp.model.MessDatabaseExtrasLunch;
 import com.example.canteenapp.model.MessDatabaseMenuBreakfast;
 import com.example.canteenapp.model.MessDatabaseMenuDinner;
 import com.example.canteenapp.model.MessDatabaseMenuLunch;
+import com.example.canteenapp.ui.student.optout.OptOutActivity;
+import com.example.canteenapp.ui.student.payment.PaymentAcitivity;
+import com.example.canteenapp.ui.student.showeekly.WeeklyMenu;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -75,6 +74,38 @@ public class HomeFragment extends Fragment {
         breakfast_extra_listView=root.findViewById(R.id.extra_breakfast_listview);
         lunch_extra_listView=root.findViewById(R.id.extra_lunch_listview);
         dinner_extra_listView=root.findViewById(R.id.extra_dinner_listview);
+        ImageView showExtras = root.findViewById(R.id.show_extras);
+        ImageView optout = root.findViewById(R.id.optout);
+        ImageView weeklyExtra = root.findViewById(R.id.weekly_extra);
+        ImageView weeklymenu = root.findViewById(R.id.weekly_menu);
+
+        showExtras.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getContext(), PaymentAcitivity.class));
+            }
+        });
+
+        optout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getContext(), OptOutActivity.class));
+            }
+        });
+
+        weeklymenu.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getContext(), WeeklyMenu.class).putExtra("type", "menu"));
+            }
+        });
+
+        weeklyExtra.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getContext(), OptOutActivity.class).putExtra("type", "extra"));
+            }
+        });
 
         getfromfirabase();
 

@@ -31,7 +31,7 @@ public class PaymentAcitivity extends AppCompatActivity {
         pay_bt.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                payUsingUpi("Prakash Saini","sainiprakash525@okhdfcbank","Party de de Bhodike","100");
+                payUsingUpi("Prakash Saini","sainiprakash525@okhdfcbank","Requesting money for extras in mess menu","100");
             }
         });
 
