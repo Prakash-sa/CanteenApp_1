@@ -81,7 +81,7 @@ public class UpdateMenu extends Fragment {
         breakfast.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                TIME = "breakfast";
+                TIME = "Breakfast";
                 gotoEdit();
             }
         });
@@ -89,7 +89,7 @@ public class UpdateMenu extends Fragment {
         lunch.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                TIME = "lunch";
+                TIME = "Lunch";
                 gotoEdit();
             }
         });
@@ -97,7 +97,7 @@ public class UpdateMenu extends Fragment {
         dinner.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                TIME = "dinner";
+                TIME = "Dinner";
                 gotoEdit();
             }
         });

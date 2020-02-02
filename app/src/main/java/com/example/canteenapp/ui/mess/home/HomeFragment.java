@@ -100,6 +100,7 @@ public class HomeFragment extends Fragment {
     }
 
     private void setTextViewMenu(){
+        if(messDatabaseMenuLunch==null)return;
         textView1.setText(messDatabaseMenuLunch.getChapatiType());
         textView2.setText(messDatabaseMenuLunch.getRiceType());
         textView3.setText(messDatabaseMenuLunch.getSaladType());
@@ -113,6 +114,7 @@ public class HomeFragment extends Fragment {
 
     }
     private void setTextViewExtra(){
+        if(messDatabaseExtrasLunch==null)return;
         extratextView1.setText(messDatabaseExtrasLunch.getGheeType());
         extratextView2.setText(messDatabaseExtrasLunch.getSweetType());
         extratextView3.setText(messDatabaseExtrasLunch.getJuiceType());
