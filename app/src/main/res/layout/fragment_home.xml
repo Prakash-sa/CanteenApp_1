@@ -151,10 +151,16 @@
                                     android:layout_height="wrap_content">
 
                                     <!--                                TODO-->
-                                    <TextView
-                                        android:text="Hello"
+
+
+                                    <org.lucasr.twowayview.TwoWayView
                                         android:layout_width="wrap_content"
-                                        android:layout_height="wrap_content"/>
+                                        android:layout_height="wrap_content"
+                                        style="@style/TwoWayView"
+                                        android:drawSelectorOnTop="false"
+                                        android:id="@+id/menu_breakfast_listview"/>
+
+
 
                                 </androidx.cardview.widget.CardView>
 
@@ -187,10 +193,14 @@
                                     android:layout_height="wrap_content">
 
                                     <!--                                TODO-->
-                                    <TextView
-                                        android:text="Hello"
+
+
+                                    <org.lucasr.twowayview.TwoWayView
                                         android:layout_width="wrap_content"
-                                        android:layout_height="wrap_content"/>
+                                        android:layout_height="wrap_content"
+                                        style="@style/TwoWayView"
+                                        android:drawSelectorOnTop="false"
+                                        android:id="@+id/menu_lunch_listview"/>
 
                                 </androidx.cardview.widget.CardView>
 
@@ -223,10 +233,14 @@
                                     android:layout_height="wrap_content">
 
                                     <!--                                TODO-->
-                                    <TextView
-                                        android:text="Hello"
+
+
+                                    <org.lucasr.twowayview.TwoWayView
                                         android:layout_width="wrap_content"
-                                        android:layout_height="wrap_content"/>
+                                        android:layout_height="wrap_content"
+                                        style="@style/TwoWayView"
+                                        android:drawSelectorOnTop="false"
+                                        android:id="@+id/menu_dinner_listview"/>
 
                                 </androidx.cardview.widget.CardView>
 
@@ -274,10 +288,14 @@
                                     android:layout_height="wrap_content">
 
                                     <!--                                TODO-->
-                                    <TextView
-                                        android:text="Hello"
+
+
+                                    <org.lucasr.twowayview.TwoWayView
                                         android:layout_width="wrap_content"
-                                        android:layout_height="wrap_content"/>
+                                        android:layout_height="wrap_content"
+                                        style="@style/TwoWayView"
+                                        android:drawSelectorOnTop="false"
+                                        android:id="@+id/extra_breakfast_listview"/>
 
                                 </androidx.cardview.widget.CardView>
 
@@ -310,10 +328,13 @@
                                     android:layout_height="wrap_content">
 
                                     <!--                                TODO-->
-                                    <TextView
-                                        android:text="Hello"
+
+                                    <org.lucasr.twowayview.TwoWayView
                                         android:layout_width="wrap_content"
-                                        android:layout_height="wrap_content"/>
+                                        android:layout_height="wrap_content"
+                                        style="@style/TwoWayView"
+                                        android:drawSelectorOnTop="false"
+                                        android:id="@+id/extra_lunch_listview"/>
 
                                 </androidx.cardview.widget.CardView>
 
@@ -346,10 +367,15 @@
                                     android:layout_height="wrap_content">
 
                                     <!--                                TODO-->
-                                    <TextView
-                                        android:text="Hello"
+
+
+                                    <org.lucasr.twowayview.TwoWayView
                                         android:layout_width="wrap_content"
-                                        android:layout_height="wrap_content"/>
+                                        android:layout_height="wrap_content"
+                                        style="@style/TwoWayView"
+                                        android:drawSelectorOnTop="false"
+                                        android:id="@+id/extra_dinner_listview"/>
+
 
                                 </androidx.cardview.widget.CardView>
 

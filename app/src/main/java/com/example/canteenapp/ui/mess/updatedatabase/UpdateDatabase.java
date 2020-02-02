@@ -11,8 +11,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.canteenapp.R;
-import com.example.canteenapp.model.MessDatabaseExtras;
-import com.example.canteenapp.model.MessDatabaseMenu;
+import com.example.canteenapp.model.MessDatabaseExtrasLunch;
+import com.example.canteenapp.model.MessDatabaseMenuLunch;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -24,8 +24,8 @@ public class UpdateDatabase extends AppCompatActivity {
     private EditText editText1,editText2,editText3,editText4,editText5,editText6,editText7,editText8,editText9,editText10;
     private TextView title;
     private String arg1,arg2,arg3,arg4,arg5,arg6,arg7,arg8,arg9,arg10;
-    private MessDatabaseMenu messDatabaseMenu;
-    private MessDatabaseExtras messDatabaseExtras;
+    private MessDatabaseMenuLunch messDatabaseMenuLunch;
+    private MessDatabaseExtrasLunch messDatabaseExtrasLunch;
     private Button submit_bt;
     private FirebaseDatabase database = FirebaseDatabase.getInstance();
     private DatabaseReference myRef = database.getReference("Mess");
@@ -57,8 +57,8 @@ public class UpdateDatabase extends AppCompatActivity {
             myRef.child(type1).child(day).addValueEventListener(new ValueEventListener() {
                 @Override
                 public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                   messDatabaseMenu=dataSnapshot.getValue(MessDatabaseMenu.class);
-                   if(messDatabaseMenu!=null)
+                   messDatabaseMenuLunch =dataSnapshot.getValue(MessDatabaseMenuLunch.class);
+                   if(messDatabaseMenuLunch !=null)
                    setEditTextMenu();
                     title.setText("Menu");
                 }
@@ -73,8 +73,8 @@ public class UpdateDatabase extends AppCompatActivity {
             myRef.child(type1).child(day).addValueEventListener(new ValueEventListener() {
                 @Override
                 public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                    messDatabaseExtras=dataSnapshot.getValue(MessDatabaseExtras.class);
-                    if(messDatabaseExtras!=null)
+                    messDatabaseExtrasLunch =dataSnapshot.getValue(MessDatabaseExtrasLunch.class);
+                    if(messDatabaseExtrasLunch !=null)
                     setEditTextExtra();
                     title.setText("Extra");
                 }
@@ -124,8 +124,8 @@ public class UpdateDatabase extends AppCompatActivity {
                     else arg10="null";
 
 
-                    messDatabaseMenu =new MessDatabaseMenu(arg1,arg2,arg3,arg4,arg5,arg6,arg7,arg8,arg9,arg10);
-                    myRef.child(type1).child(day).setValue(messDatabaseMenu);
+                    messDatabaseMenuLunch =new MessDatabaseMenuLunch(arg1,arg2,arg3,arg4,arg5,arg6,arg7,arg8,arg9,arg10);
+                    myRef.child(type1).child(day).setValue(messDatabaseMenuLunch);
                     Toast.makeText(UpdateDatabase.this,"Updated",Toast.LENGTH_LONG).show();
                 }
                 if(type1.equals("extra")){
@@ -160,8 +160,8 @@ public class UpdateDatabase extends AppCompatActivity {
                     if(editText10.getText().toString()!=null)arg10=editText10.getText().toString();
                     else arg10="null";
 
-                    messDatabaseExtras=new MessDatabaseExtras(arg1,arg2,arg3,arg4,arg5,arg6,arg7,arg8,arg9,arg10);
-                    myRef.child(type1).child(day).setValue(messDatabaseExtras);
+                    messDatabaseExtrasLunch =new MessDatabaseExtrasLunch(arg1,arg2,arg3,arg4,arg5,arg6,arg7,arg8,arg9,arg10);
+                    myRef.child(type1).child(day).setValue(messDatabaseExtrasLunch);
                 }
             }
         });
@@ -169,12 +169,12 @@ public class UpdateDatabase extends AppCompatActivity {
     }
 
     private void setEditTextMenu(){
-        editText1.setText(messDatabaseMenu.getChapatiType());
-        editText2.setText(messDatabaseMenu.getRiceType());
-        editText3.setText(messDatabaseMenu.getSaladType());
-        editText4.setText(messDatabaseMenu.getDallType());
-        editText5.setText(messDatabaseMenu.getSabjiType());
-        editText6.setText(messDatabaseMenu.getCurdType());
+        editText1.setText(messDatabaseMenuLunch.getChapatiType());
+        editText2.setText(messDatabaseMenuLunch.getRiceType());
+        editText3.setText(messDatabaseMenuLunch.getSaladType());
+        editText4.setText(messDatabaseMenuLunch.getDallType());
+        editText5.setText(messDatabaseMenuLunch.getSabjiType());
+        editText6.setText(messDatabaseMenuLunch.getCurdType());
         editText7.setHint("Optional");
         editText8.setHint("Optional");
         editText9.setHint("Optional");
@@ -182,10 +182,10 @@ public class UpdateDatabase extends AppCompatActivity {
     }
 
     private void setEditTextExtra(){
-        editText1.setText(messDatabaseExtras.getGheeType());
-        editText2.setText(messDatabaseExtras.getSweetType());
-        editText3.setText(messDatabaseExtras.getJuiceType());
-        editText4.setText(messDatabaseExtras.getIceCreamType());
+        editText1.setText(messDatabaseExtrasLunch.getGheeType());
+        editText2.setText(messDatabaseExtrasLunch.getSweetType());
+        editText3.setText(messDatabaseExtrasLunch.getJuiceType());
+        editText4.setText(messDatabaseExtrasLunch.getIceCreamType());
         editText5.setHint("Optional");
         editText6.setHint("Optional");
         editText7.setHint("Optional");

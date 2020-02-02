@@ -1,8 +1,6 @@
 package com.example.canteenapp.model;
 
-import android.graphics.Path;
-
-public class MessDatabaseExtras {
+public class MessDatabaseExtrasDinner {
 
     private String GheeType;
     private String SweetType;
@@ -15,10 +13,10 @@ public class MessDatabaseExtras {
     private String Optional5;
     private String Optional6;
 
-    public MessDatabaseExtras(){
+    public MessDatabaseExtrasDinner(){
 
     }
-    public MessDatabaseExtras(String GheeType, String SweetType, String JuiceType, String IceCreamType, String Optional1, String Optional2, String Optional3, String Optional4, String Optional5, String Optional6){
+    public MessDatabaseExtrasDinner(String GheeType, String SweetType, String JuiceType, String IceCreamType, String Optional1, String Optional2, String Optional3, String Optional4, String Optional5, String Optional6){
         this.GheeType=GheeType;
         this.SweetType=SweetType;
         this.JuiceType=JuiceType;

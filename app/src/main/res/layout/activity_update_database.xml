@@ -26,43 +26,43 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>
         <EditText
-            android:layout_width="wrap_content"
+            android:layout_width="250dp"
             android:layout_height="wrap_content"
             android:id="@+id/databaseedit_text_1"/>
         <EditText
-            android:layout_width="wrap_content"
+            android:layout_width="250dp"
             android:layout_height="wrap_content"
             android:id="@+id/databaseedit_text_2"/>
         <EditText
-            android:layout_width="wrap_content"
+            android:layout_width="250dp"
             android:layout_height="wrap_content"
             android:id="@+id/databaseedit_text_3"/>
         <EditText
-            android:layout_width="wrap_content"
+            android:layout_width="250dp"
             android:layout_height="wrap_content"
             android:id="@+id/databaseedit_text_4"/>
         <EditText
-            android:layout_width="wrap_content"
+            android:layout_width="250dp"
             android:layout_height="wrap_content"
             android:id="@+id/databaseedit_text_5"/>
         <EditText
-            android:layout_width="wrap_content"
+            android:layout_width="250dp"
             android:layout_height="wrap_content"
             android:id="@+id/databaseedit_text_6"/>
         <EditText
-            android:layout_width="wrap_content"
+            android:layout_width="250dp"
             android:layout_height="wrap_content"
             android:id="@+id/databaseedit_text_7"/>
         <EditText
-            android:layout_width="wrap_content"
+            android:layout_width="250dp"
             android:layout_height="wrap_content"
             android:id="@+id/databaseedit_text_8"/>
         <EditText
-            android:layout_width="wrap_content"
+            android:layout_width="250dp"
             android:layout_height="wrap_content"
             android:id="@+id/databaseedit_text_9"/>
         <EditText
-            android:layout_width="wrap_content"
+            android:layout_width="250dp"
             android:layout_height="wrap_content"
             android:id="@+id/databaseedit_text_10"/>
     </LinearLayout>
@@ -70,6 +70,7 @@
     <Button
         android:id="@+id/mess_schedule_submit"
         android:layout_width="wrap_content"
+        android:layout_gravity="center"
         android:layout_height="wrap_content"
         android:text="Submit" />
 
