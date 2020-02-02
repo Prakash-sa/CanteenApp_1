@@ -51,7 +51,12 @@ public class HomeFragment extends Fragment {
     private ListView breakfast_menu_listView,lunch_menu_listView,dinner_menu_listView,breakfast_extra_listView,lunch_extra_listView,dinner_extra_listView;
     private HomeViewModel homeViewModel;
     ArrayAdapter<String>adapter1,adapter2,adapter3,adapter4,adapter5,adapter6;
-    private List<String>items1,items2,items3,items4,items5,items6;
+    private List<String>items1=new ArrayList<>();
+    private List<String>items2=new ArrayList<>();
+    private List<String>items3=new ArrayList<>();
+    private List<String>items4=new ArrayList<>();
+    private List<String>items5=new ArrayList<>();
+    private List<String>items6=new ArrayList<>();
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
@@ -59,7 +64,6 @@ public class HomeFragment extends Fragment {
                 ViewModelProviders.of(this).get(HomeViewModel.class);
         View root = inflater.inflate(R.layout.fragment_home, container, false);
 
-        items1.add("asdf");
         today=getCurrentDay();
         breakfast_menu_listView=root.findViewById(R.id.menu_breakfast_listview);
         lunch_menu_listView=root.findViewById(R.id.menu_lunch_listview);
@@ -150,6 +154,8 @@ public class HomeFragment extends Fragment {
     }
 
     private void additems(){
+        if(messDatabaseExtrasDinner==null||messDatabaseExtrasLunch==null||messDatabaseExtrasBreakfast==null||messDatabaseMenuLunch==null||messDatabaseMenuBreakfast==null||messDatabaseMenuDinner==null)return;
+
         if(messDatabaseMenuBreakfast.getChapatiType()!=null)items1.add(messDatabaseMenuBreakfast.getChapatiType());
         if(messDatabaseMenuBreakfast.getRiceType()!=null)items1.add(messDatabaseMenuBreakfast.getRiceType());
         if(messDatabaseMenuBreakfast.getSabjiType()!=null)items1.add(messDatabaseMenuBreakfast.getSabjiType());
