@@ -1,6 +1,6 @@
 package com.example.canteenapp.model;
 
-public class MessDatabaseMenu {
+public class MessDatabaseMenuLunch {
 
     private String ChapatiType;
     private String RiceType;
@@ -13,11 +13,11 @@ public class MessDatabaseMenu {
     private String Optional3;
     private String Optional4;
 
-    public MessDatabaseMenu(){
+    public MessDatabaseMenuLunch(){
 
     }
 
-    public MessDatabaseMenu(String ChapatiType, String RiceType, String SaladType, String DallType, String SabjiType, String CurdType, String Optional1, String Optional2, String Optional3, String Optional4){
+    public MessDatabaseMenuLunch(String ChapatiType, String RiceType, String SaladType, String DallType, String SabjiType, String CurdType, String Optional1, String Optional2, String Optional3, String Optional4){
         this.ChapatiType=ChapatiType;
         this.RiceType=RiceType;
         this.SabjiType=SabjiType;

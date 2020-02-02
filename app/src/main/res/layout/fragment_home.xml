@@ -151,10 +151,14 @@
                                     android:layout_height="wrap_content">
 
                                     <!--                                TODO-->
-                                    <TextView
-                                        android:text="Hello"
-                                        android:layout_width="wrap_content"
-                                        android:layout_height="wrap_content"/>
+
+
+                                        <ListView
+                                            android:layout_width="250dp"
+                                            android:layout_height="100dp"
+                                            android:id="@+id/menu_breakfast_listview"/>
+
+
 
                                 </androidx.cardview.widget.CardView>
 
@@ -187,10 +191,10 @@
                                     android:layout_height="wrap_content">
 
                                     <!--                                TODO-->
-                                    <TextView
-                                        android:text="Hello"
-                                        android:layout_width="wrap_content"
-                                        android:layout_height="wrap_content"/>
+                                    <ListView
+                                        android:layout_width="250dp"
+                                        android:layout_height="100dp"
+                                        android:id="@+id/menu_lunch_listview"/>
 
                                 </androidx.cardview.widget.CardView>
 
@@ -223,11 +227,10 @@
                                     android:layout_height="wrap_content">
 
                                     <!--                                TODO-->
-                                    <TextView
-                                        android:text="Hello"
-                                        android:layout_width="wrap_content"
-                                        android:layout_height="wrap_content"/>
-
+                                    <ListView
+                                        android:layout_width="250dp"
+                                        android:layout_height="100dp"
+                                        android:id="@+id/menu_dinner_listview"/>
                                 </androidx.cardview.widget.CardView>
 
                             </LinearLayout>
@@ -274,11 +277,10 @@
                                     android:layout_height="wrap_content">
 
                                     <!--                                TODO-->
-                                    <TextView
-                                        android:text="Hello"
-                                        android:layout_width="wrap_content"
-                                        android:layout_height="wrap_content"/>
-
+                                    <ListView
+                                        android:layout_width="250dp"
+                                        android:layout_height="100dp"
+                                        android:id="@+id/extra_breakfast_listview"/>
                                 </androidx.cardview.widget.CardView>
 
                             </LinearLayout>
@@ -310,11 +312,10 @@
                                     android:layout_height="wrap_content">
 
                                     <!--                                TODO-->
-                                    <TextView
-                                        android:text="Hello"
-                                        android:layout_width="wrap_content"
-                                        android:layout_height="wrap_content"/>
-
+                                    <ListView
+                                        android:layout_width="250dp"
+                                        android:layout_height="100dp"
+                                        android:id="@+id/extra_lunch_listview"/>
                                 </androidx.cardview.widget.CardView>
 
                             </LinearLayout>
@@ -346,10 +347,10 @@
                                     android:layout_height="wrap_content">
 
                                     <!--                                TODO-->
-                                    <TextView
-                                        android:text="Hello"
-                                        android:layout_width="wrap_content"
-                                        android:layout_height="wrap_content"/>
+                                    <ListView
+                                        android:layout_width="250dp"
+                                        android:layout_height="100dp"
+                                        android:id="@+id/extra_dinner_listview"/>
 
                                 </androidx.cardview.widget.CardView>
 

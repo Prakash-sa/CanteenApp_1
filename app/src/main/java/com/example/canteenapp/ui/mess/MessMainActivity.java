@@ -93,6 +93,7 @@ public class MessMainActivity extends AppCompatActivity {
         if (drawer.isDrawerOpen(GravityCompat.START)) {
             drawer.closeDrawers();
         } else {
+            finish();
             super.onBackPressed();
         }
     }
