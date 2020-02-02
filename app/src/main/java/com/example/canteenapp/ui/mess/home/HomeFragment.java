@@ -26,8 +26,6 @@ import java.util.Locale;
 
 public class HomeFragment extends Fragment {
 
-    private TextView textView1,textView2,textView3,textView4,textView5,textView6,textView7,textView8,textView9,textView10;
-    private TextView extratextView1,extratextView2,extratextView3,extratextView4,extratextView5,extratextView6,extratextView7,extratextView8,extratextView9,extratextView10;
     private String today;
     private MessDatabaseMenuLunch messDatabaseMenuLunch;
     private MessDatabaseExtrasLunch messDatabaseExtrasLunch;
@@ -42,34 +40,12 @@ public class HomeFragment extends Fragment {
         View root = inflater.inflate(R.layout.fragment_mess_home, container, false);
 
         today=getCurrentDay();
-        textView1=root.findViewById(R.id.home_menu_textview_1);
-        textView2=root.findViewById(R.id.home_menu_textview_2);
-        textView3=root.findViewById(R.id.home_menu_textview_3);
-        textView4=root.findViewById(R.id.home_menu_textview_4);
-        textView5=root.findViewById(R.id.home_menu_textview_5);
-        textView6=root.findViewById(R.id.home_menu_textview_6);
-        textView7=root.findViewById(R.id.home_menu_textview_7);
-        textView8=root.findViewById(R.id.home_menu_textview_8);
-        textView9=root.findViewById(R.id.home_menu_textview_9);
-        textView10=root.findViewById(R.id.home_menu_textview_10);
-
-        extratextView1=root.findViewById(R.id.home_extra_textview_1);
-        extratextView2=root.findViewById(R.id.home_extra_textview_2);
-        extratextView3=root.findViewById(R.id.home_extra_textview_3);
-        extratextView4=root.findViewById(R.id.home_extra_textview_4);
-        extratextView5=root.findViewById(R.id.home_extra_textview_5);
-        extratextView6=root.findViewById(R.id.home_extra_textview_6);
-        extratextView7=root.findViewById(R.id.home_extra_textview_7);
-        extratextView8=root.findViewById(R.id.home_extra_textview_8);
-        extratextView9=root.findViewById(R.id.home_extra_textview_9);
-        extratextView10=root.findViewById(R.id.home_extra_textview_10);
 
 
         myRef.child("menu").child("Monday").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 messDatabaseMenuLunch =dataSnapshot.getValue(MessDatabaseMenuLunch.class);
-                setTextViewMenu();
             }
 
             @Override
@@ -81,7 +57,6 @@ public class HomeFragment extends Fragment {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 messDatabaseExtrasLunch =dataSnapshot.getValue(MessDatabaseExtrasLunch.class);
-                setTextViewExtra();
             }
 
             @Override
@@ -97,33 +72,5 @@ public class HomeFragment extends Fragment {
         Calendar calendar = Calendar.getInstance();
         return dayFormat.format(calendar.getTime());
 
-    }
-
-    private void setTextViewMenu(){
-        if(messDatabaseMenuLunch==null)return;
-        textView1.setText(messDatabaseMenuLunch.getChapatiType());
-        textView2.setText(messDatabaseMenuLunch.getRiceType());
-        textView3.setText(messDatabaseMenuLunch.getSaladType());
-        textView4.setText(messDatabaseMenuLunch.getSabjiType());
-        textView5.setText(messDatabaseMenuLunch.getDallType());
-        textView6.setText(messDatabaseMenuLunch.getCurdType());
-        textView7.setText(messDatabaseMenuLunch.getOptional1());
-        textView8.setText(messDatabaseMenuLunch.getOptional2());
-        textView9.setText(messDatabaseMenuLunch.getOptional3());
-        textView10.setText(messDatabaseMenuLunch.getOptional4());
-
-    }
-    private void setTextViewExtra(){
-        if(messDatabaseExtrasLunch==null)return;
-        extratextView1.setText(messDatabaseExtrasLunch.getGheeType());
-        extratextView2.setText(messDatabaseExtrasLunch.getSweetType());
-        extratextView3.setText(messDatabaseExtrasLunch.getJuiceType());
-        extratextView4.setText(messDatabaseExtrasLunch.getIceCreamType());
-        extratextView5.setText(messDatabaseExtrasLunch.getOptional1());
-        extratextView6.setText(messDatabaseExtrasLunch.getOptional2());
-        extratextView7.setText(messDatabaseExtrasLunch.getOptional3());
-        extratextView8.setText(messDatabaseExtrasLunch.getOptional4());
-        extratextView9.setText(messDatabaseExtrasLunch.getOptional5());
-        extratextView10.setText(messDatabaseExtrasLunch.getOptional6());
     }
 }

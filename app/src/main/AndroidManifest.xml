@@ -14,7 +14,9 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".ui.mess.updatedatabase.UpdateDatabase"></activity>
+        <activity android:name=".ui.student.showeekly.WeeklyMenu"></activity>
+        <activity android:name=".ui.student.optout.OptOutActivity" />
+        <activity android:name=".ui.mess.updatedatabase.UpdateDatabase" />
         <activity
             android:name=".ui.mess.MessMainActivity"
             android:label="@string/title_activity_main"

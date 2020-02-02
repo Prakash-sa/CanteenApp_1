@@ -41,6 +41,7 @@
                         android:layout_height="32dp"/>
 
                     <ImageView
+                        android:id="@+id/show_extras"
                         android:clickable="true"
                         android:focusable="true"
                         android:src="@drawable/food_and_restaurant"
@@ -78,6 +79,7 @@
                         android:layout_height="32dp"/>
 
                     <ImageView
+                        android:id="@+id/optout"
                         android:clickable="true"
                         android:focusable="true"
                         android:src="@drawable/no_food"
@@ -417,6 +419,7 @@
                                     android:layout_height="32dp"/>
 
                                 <ImageView
+                                    android:id="@+id/weekly_menu"
                                     android:clickable="true"
                                     android:focusable="true"
                                     android:src="@drawable/menu"
@@ -456,6 +459,7 @@
                                     android:layout_height="32dp"/>
 
                                 <ImageView
+                                    android:id="@+id/weekly_extra"
                                     android:clickable="true"
                                     android:focusable="true"
                                     android:src="@drawable/extra_menu"
