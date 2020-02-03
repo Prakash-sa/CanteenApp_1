@@ -21,6 +21,7 @@ import com.google.firebase.database.ValueEventListener;
 
 public class UpdateDatabase extends AppCompatActivity {
 
+
     private EditText editText1,editText2,editText3,editText4,editText5,editText6,editText7,editText8,editText9,editText10;
     private TextView title;
     private String arg1,arg2,arg3,arg4,arg5,arg6,arg7,arg8,arg9,arg10;
