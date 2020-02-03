@@ -38,15 +38,15 @@ import java.util.List;
 import java.util.Date;
 import java.util.Locale;
 
-import static com.example.canteenapp.ui.student.home.StudentHomeFragment.getCurrentDay;
-
 import static android.icu.text.DateFormat.getDateInstance;
 
 public class MessHomeFragment extends Fragment {
-    private TextView setDay;
+    private TextView setDay, breakfastStatus, lunchStatus, dinnerStatus;
+    private TextView breakfastCount, lunchCount, dinnerCount;
     private ImageView prevDay, nextDay;
 
     private String today;
+    private long baseTime;
     private final String TAG = "MessHome";
     private MessDatabaseMenuLunch messDatabaseMenuLunch;
     private MessDatabaseMenuBreakfast messDatabaseMenuBreakfast;
@@ -78,6 +78,12 @@ public class MessHomeFragment extends Fragment {
         setDay = root.findViewById(R.id.cur_day);
         prevDay = root.findViewById(R.id.prev_day);
         nextDay = root.findViewById(R.id.next_day);
+        breakfastStatus = root.findViewById(R.id.breakfast_status);
+        lunchStatus = root.findViewById(R.id.lunch_status);
+        dinnerStatus = root.findViewById(R.id.dinner_status);
+        breakfastCount = root.findViewById(R.id.breakfast_count);
+        lunchCount = root.findViewById(R.id.lunch_count);
+        dinnerCount = root.findViewById(R.id.dinner_count);
 
         today=getCurrentDay();
 
@@ -89,8 +95,7 @@ public class MessHomeFragment extends Fragment {
         lunch_extra_listView=root.findViewById(R.id.extra_lunch_listview);
         dinner_extra_listView=root.findViewById(R.id.extra_dinner_listview);
 
-        getfromfirabase();
-
+        getfromfirebase();
 
         curr = new View.OnClickListener() {
             @Override
@@ -103,11 +108,15 @@ public class MessHomeFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 DateFormat df = SimpleDateFormat.getDateInstance();
-                long time = new Date().getTime() - AlarmManager.INTERVAL_DAY;
-                setDay.setText(df.format(new Date(time)));
+
+                Date now = new Date();
+                long millisToday = (now.getHours()*3600 + now.getMinutes()*60 + now.getSeconds()) * 1000;
+                baseTime = now.getTime() - millisToday - AlarmManager.INTERVAL_DAY;
+
+                setDay.setText(df.format(baseTime));
                 prevDay.setVisibility(View.GONE);
                 nextDay.setOnClickListener(curr);
-                reinit(time);
+                reinit();
             }
         };
 
@@ -115,26 +124,45 @@ public class MessHomeFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 DateFormat df = SimpleDateFormat.getDateInstance();
-                long time = new Date().getTime() + AlarmManager.INTERVAL_DAY;
-                setDay.setText(df.format(new Date(time)));
+
+                Date now = new Date();
+                long millisToday = (now.getHours()*3600 + now.getMinutes()*60 + now.getSeconds()) * 1000;
+                baseTime = now.getTime() - millisToday + AlarmManager.INTERVAL_DAY;
+
+                setDay.setText(df.format(baseTime));
                 nextDay.setVisibility(View.GONE);
                 prevDay.setOnClickListener(curr);
-                reinit(time);
+                reinit();
             }
         };
+
+        Date now = new Date();
+        long millisToday = (now.getHours()*3600 + now.getMinutes()*60 + now.getSeconds()) * 1000;
+        baseTime = now.getTime() - millisToday;
 
         setDate();
 
         return root;
     }
 
-    private void getfromfirabase(){
+    @Override
+    public void onResume() {
+        super.onResume();
+//        Date t = new Date();
+//        long millisToday = (t.getHours()*3600 + t.getMinutes()*60 + t.getSeconds()) * 1000;
+//
+//        baseTime = t.getTime() - millisToday;
+        Log.d(TAG, "onResume: " + new Date(baseTime).toString());
+//        baseTime = ;
+        reinit();
+    }
+
+    private void getfromfirebase(){
         myRef.child("menu").child(today).child("Breakfast").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 messDatabaseMenuBreakfast = dataSnapshot.getValue(MessDatabaseMenuBreakfast.class);
                 Log.i("adfadf", "set");
-                Log.i("Database", messDatabaseMenuBreakfast.getChapatiType());
                 additemsBreakfast();
                 setAdapterforlist();
             }
@@ -385,19 +413,47 @@ public class MessHomeFragment extends Fragment {
 
     private void setDate() {
         // update values/details for the shown date
+
+        Date now = new Date();
+        long millisToday = (now.getHours()*3600 + now.getMinutes()*60 + now.getSeconds()) * 1000;
+        baseTime = now.getTime() - millisToday - AlarmManager.INTERVAL_DAY;
+
         DateFormat sd = getDateInstance();
-        long time = new Date().getTime();
-        setDay.setText(sd.format(new Date()));
+        setDay.setText(sd.format(now));
         prevDay.setVisibility(View.VISIBLE);
         nextDay.setVisibility(View.VISIBLE);
         prevDay.setOnClickListener(prev);
         nextDay.setOnClickListener(next);
-        reinit(time);
+        reinit();
     }
 
-    private void reinit(long time) {
-
+    private void reinit() {
+        // get
+        today = (new SimpleDateFormat("EEEE", Locale.getDefault())).format(baseTime);
+        getfromfirebase();
+        setStatus();
     }
+
+    private void setStatus() {
+        long[] mealTime = {9*3600*1000, 14*3600*1000, 21*3600*1000};
+        long currTime = new Date().getTime();
+        if (baseTime + mealTime[0] - currTime > AlarmManager.INTERVAL_DAY)
+            breakfastStatus.setText("ONGOING");
+        else
+            breakfastStatus.setText("FINAL");
+
+        if (baseTime + mealTime[1] - currTime > AlarmManager.INTERVAL_DAY)
+            lunchStatus.setText("ONGOING");
+        else
+            lunchStatus.setText("FINAL");
+
+        if (baseTime + mealTime[2] - currTime > AlarmManager.INTERVAL_DAY)
+            dinnerStatus.setText("ONGOING");
+        else
+            dinnerStatus.setText("FINAL");
+    }
+
+
 
     private static String getCurrentDay(){
         SimpleDateFormat dayFormat = new SimpleDateFormat("EEEE", Locale.US);

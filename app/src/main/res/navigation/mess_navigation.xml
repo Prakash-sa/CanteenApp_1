@@ -14,7 +14,13 @@
     <fragment
         android:id="@+id/nav_update"
         android:name="com.example.canteenapp.ui.mess.updatemenu.UpdateMenu"
-        android:label="Update"
+        android:label="@string/menu_changemenu"
         tools:layout="@layout/update_menu_fragment" />
+
+    <fragment
+        android:id="@+id/nav_mealtime"
+        android:name="com.example.canteenapp.ui.mess.mealtime.MealTime"
+        android:label="@string/menu_mealtime"
+        tools:layout="@layout/meal_time_fragment" />
 
 </navigation>

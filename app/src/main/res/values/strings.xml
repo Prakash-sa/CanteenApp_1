@@ -17,4 +17,6 @@
 
     <string name="getidtoken">1040092779697-oucm7581052rptnm8sioemfa3rj5q5m0.apps.googleusercontent.com</string>
     <string name="title_activity_main">MainActivity</string>
+    <string name="menu_mealtime">Meal Time</string>
+    <string name="menu_changemenu">Change Menu</string>
 </resources>

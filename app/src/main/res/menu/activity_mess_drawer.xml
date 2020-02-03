@@ -8,10 +8,14 @@
             android:id="@+id/nav_home_mess"
             android:icon="@drawable/ic_home_black_24dp"
             android:title="@string/menu_home" />
-    <item
-        android:id="@+id/nav_update"
-        android:icon="@drawable/ic_home_black_24dp"
-        android:title="Update"/>
+        <item
+            android:id="@+id/nav_update"
+            android:icon="@drawable/ic_home_black_24dp"
+            android:title="@string/menu_changemenu"/>
+        <item
+            android:id="@+id/nav_mealtime"
+            android:icon="@drawable/ic_home_black_24dp"
+            android:title="@string/menu_mealtime"/>
     </group>
 
 
