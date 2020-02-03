@@ -3,81 +3,125 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:gravity="center"
     android:layout_height="match_parent"
+    android:gravity="center"
     tools:context=".ui.mess.updatedatabase.UpdateDatabase">
 
     <ScrollView
-        android:layout_gravity="center"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
-<LinearLayout
-    android:orientation="vertical"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content">
-
-    <LinearLayout
-        android:layout_width="wrap_content"
+        android:scrollbars="none"
+        android:overScrollMode="never"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        >
-        <TextView
-            android:id="@+id/title_database"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
-        <EditText
-            android:layout_width="250dp"
-            android:layout_height="wrap_content"
-            android:id="@+id/databaseedit_text_1"/>
-        <EditText
-            android:layout_width="250dp"
-            android:layout_height="wrap_content"
-            android:id="@+id/databaseedit_text_2"/>
-        <EditText
-            android:layout_width="250dp"
-            android:layout_height="wrap_content"
-            android:id="@+id/databaseedit_text_3"/>
-        <EditText
-            android:layout_width="250dp"
-            android:layout_height="wrap_content"
-            android:id="@+id/databaseedit_text_4"/>
-        <EditText
-            android:layout_width="250dp"
-            android:layout_height="wrap_content"
-            android:id="@+id/databaseedit_text_5"/>
-        <EditText
-            android:layout_width="250dp"
-            android:layout_height="wrap_content"
-            android:id="@+id/databaseedit_text_6"/>
-        <EditText
-            android:layout_width="250dp"
-            android:layout_height="wrap_content"
-            android:id="@+id/databaseedit_text_7"/>
-        <EditText
-            android:layout_width="250dp"
-            android:layout_height="wrap_content"
-            android:id="@+id/databaseedit_text_8"/>
-        <EditText
-            android:layout_width="250dp"
-            android:layout_height="wrap_content"
-            android:id="@+id/databaseedit_text_9"/>
-        <EditText
-            android:layout_width="250dp"
-            android:layout_height="wrap_content"
-            android:id="@+id/databaseedit_text_10"/>
-    </LinearLayout>
+        android:layout_gravity="center">
 
-    <Button
-        android:id="@+id/mess_schedule_submit"
-        android:layout_width="wrap_content"
-        android:layout_gravity="center"
-        android:layout_height="wrap_content"
-        android:text="Submit" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
 
-</LinearLayout>
+            <com.google.android.material.card.MaterialCardView
+                android:elevation="8dp"
+                android:layout_margin="8dp"
+                app:cardCornerRadius="8dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <LinearLayout
+                    android:layout_margin="16dp"
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <TextView
+                        android:id="@+id/title_database"
+                        android:text="Change Menu"
+                        android:textAppearance="@style/TextAppearance.MaterialComponents.Headline5"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:layout_margin="4dp"
+                        android:hint="Item Name"
+                        android:id="@+id/databaseedit_text_1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" />
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:layout_margin="4dp"
+                        android:hint="Item Name"
+                        android:id="@+id/databaseedit_text_2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" />
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:layout_margin="4dp"
+                        android:hint="Item Name"
+                        android:id="@+id/databaseedit_text_3"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" />
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:layout_margin="4dp"
+                        android:hint="Item Name"
+                        android:id="@+id/databaseedit_text_4"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" />
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:layout_margin="4dp"
+                        android:hint="Item Name"
+                        android:id="@+id/databaseedit_text_5"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" />
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:layout_margin="4dp"
+                        android:hint="Item Name"
+                        android:id="@+id/databaseedit_text_6"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" />
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:layout_margin="4dp"
+                        android:hint="Item Name"
+                        android:id="@+id/databaseedit_text_7"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" />
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:layout_margin="4dp"
+                        android:hint="Item Name"
+                        android:id="@+id/databaseedit_text_8"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" />
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:layout_margin="4dp"
+                        android:hint="Item Name"
+                        android:id="@+id/databaseedit_text_9"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" />
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:layout_margin="4dp"
+                        android:hint="Item Name"
+                        android:id="@+id/databaseedit_text_10"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" />
+
+                </LinearLayout>
+
+            </com.google.android.material.card.MaterialCardView>
+
+            <Button
+                android:id="@+id/mess_schedule_submit"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="Submit" />
+
+        </LinearLayout>
 
     </ScrollView>
-
 
 
 </LinearLayout>

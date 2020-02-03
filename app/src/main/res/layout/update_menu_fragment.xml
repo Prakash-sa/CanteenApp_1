@@ -179,7 +179,7 @@
                             android:id="@+id/extra_radio"
                             android:checked="false"
                             android:layout_marginStart="24dp"
-                            android:text="Radio"
+                            android:text="Extra"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content" />
 
