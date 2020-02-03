@@ -113,6 +113,7 @@ public class StudentHomeFragment extends Fragment {
     }
 
     private void getfromfirabase(){
+        Log.i("today",today);
         myRef.child("menu").child(today).child("Breakfast").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
