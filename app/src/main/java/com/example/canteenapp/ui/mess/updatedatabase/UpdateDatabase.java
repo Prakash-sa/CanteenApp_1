@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -72,6 +73,7 @@ public class UpdateDatabase extends AppCompatActivity {
             });
         }
         if(type1.equals("extra")){
+            ((LinearLayout) findViewById(R.id.price_container)).setVisibility(View.VISIBLE);
             myRef.child(type1).child(day).child(timetype).addValueEventListener(new ValueEventListener() {
                 @Override
                 public void onDataChange(@NonNull DataSnapshot dataSnapshot) {

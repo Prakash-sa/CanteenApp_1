@@ -6,8 +6,10 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
@@ -68,6 +70,7 @@ public class MyAccountFragment extends Fragment {
         student_monthly_payment=root.findViewById(R.id.student_monthly_payment);
         student_extras_payment=root.findViewById(R.id.student_extras_payment);
 //        day = root.findViewById(R.id.day);
+        Button refresh = root.findViewById(R.id.refresh);
 
         profile_picture=root.findViewById(R.id.student_profile_picture);
         student_name=root.findViewById(R.id.student_name);
@@ -84,6 +87,14 @@ public class MyAccountFragment extends Fragment {
                 Log.i(String.valueOf(mcontext),"MyAccountDetails Cancelled");
             }
         });
+
+        refresh.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(getContext(), "Content updated.", Toast.LENGTH_LONG).show();
+            }
+        });
+
         return root;
     }
 
