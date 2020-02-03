@@ -1,6 +1,7 @@
 package com.example.canteenapp.ui.student.applyleave;
 
 import android.app.AlarmManager;
+import android.graphics.Color;
 import android.icu.text.SimpleDateFormat;
 import android.icu.util.Calendar;
 import android.os.Bundle;
@@ -29,6 +30,7 @@ public class ApplyLeaveFragment extends Fragment {
     private long startDate = 0, endDate = 0;
     private final String TAG = "ApplyLeave";
     private View root;
+    private CardView leave;
 
     private ApplyLeaveViewModel applyLeaveViewModel;
 
@@ -39,7 +41,7 @@ public class ApplyLeaveFragment extends Fragment {
         root = inflater.inflate(R.layout.fragment_apply_leave, container, false);
 
         CalendarView calendarView = root.findViewById(R.id.select_date);
-        CardView leave = root.findViewById(R.id.apply_leave);
+        leave = root.findViewById(R.id.apply_leave);
 
 
         // initialise calendar
@@ -56,6 +58,7 @@ public class ApplyLeaveFragment extends Fragment {
                     startDate = (calendar.getTimeInMillis());
                     STATE = (STATE + 1) % 2;
                     setStart();
+                    leave.setEnabled(false);
                     Toast.makeText(getContext(), "Now select the end date", Toast.LENGTH_LONG).show();
                 } else {
                     Calendar calendar = Calendar.getInstance();
@@ -63,6 +66,7 @@ public class ApplyLeaveFragment extends Fragment {
                     endDate = (calendar.getTimeInMillis());
                     STATE = (STATE + 1) % 2;
                     setEnd();
+                    leave.setEnabled(true);
                     colorRange();
                 }
             }
@@ -78,6 +82,8 @@ public class ApplyLeaveFragment extends Fragment {
                 }
             }
         });
+
+        leave.setEnabled(false);
 
         return root;
     }
