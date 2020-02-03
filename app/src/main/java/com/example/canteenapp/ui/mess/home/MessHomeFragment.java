@@ -427,10 +427,10 @@ public class MessHomeFragment extends Fragment {
 
         Date now = new Date();
         long millisToday = (now.getHours()*3600 + now.getMinutes()*60 + now.getSeconds()) * 1000;
-        baseTime = now.getTime() - millisToday - AlarmManager.INTERVAL_DAY;
+        baseTime = now.getTime() - millisToday;
 
         DateFormat sd = getDateInstance();
-        setDay.setText(sd.format(now));
+        setDay.setText(sd.format(baseTime));
         prevDay.setVisibility(View.VISIBLE);
         nextDay.setVisibility(View.VISIBLE);
         prevDay.setOnClickListener(prev);
