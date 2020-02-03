@@ -118,7 +118,6 @@ public class StudentHomeFragment extends Fragment {
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 messDatabaseMenuBreakfast=dataSnapshot.getValue(MessDatabaseMenuBreakfast.class);
                 Log.i("adfadf","set");
-                Log.i("Database",messDatabaseMenuBreakfast.getChapatiType());
                 additemsBreakfast();
                 setAdapterforlist();
             }

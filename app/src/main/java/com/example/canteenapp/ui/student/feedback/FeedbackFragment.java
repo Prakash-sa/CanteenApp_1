@@ -12,6 +12,7 @@ import android.widget.LinearLayout;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
@@ -21,6 +22,8 @@ import androidx.lifecycle.ViewModelProviders;
 import com.example.canteenapp.R;
 import com.example.canteenapp.model.Feedback;
 import com.example.canteenapp.ui.student.StudentMainActivity;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -28,6 +31,8 @@ import java.util.HashMap;
 
 public class FeedbackFragment extends Fragment {
 
+
+    public static FirebaseUser user;
     private FeedbackViewModel feedbackViewModel;
     private FirebaseDatabase database = FirebaseDatabase.getInstance();
     private DatabaseReference myRef = database.getReference("Students").child("Feedback");
@@ -42,6 +47,8 @@ public class FeedbackFragment extends Fragment {
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
+
+        user = FirebaseAuth.getInstance().getCurrentUser();
         feedbackViewModel =
                 ViewModelProviders.of(this).get(FeedbackViewModel.class);
         root = inflater.inflate(R.layout.fragment_feedback, container, false);
@@ -98,45 +105,57 @@ public class FeedbackFragment extends Fragment {
         }
 
         radioanswer.clear();
-        radioButton();
-        Feedback feedback=new Feedback(feed,radioanswer);
+        if(radioButton()==false){
+            Toast.makeText(getContext(),"Fill all the answer",Toast.LENGTH_LONG).show();
+            return;
+        }
+        else {
+            Feedback feedback=new Feedback(feed,radioanswer);
+            myRef.child(user.getDisplayName()).setValue(feedback);
+            Toast.makeText(getContext(),"Feedback done.",Toast.LENGTH_LONG).show();
+        }
+  }
 
-        myRef.push().setValue(feedback);
-    }
+    private boolean radioButton(){
 
-    private void radioButton(){
+
 
         radioGroup=root.findViewById(R.id.radio_answer_1);
         int selectedid=radioGroup.getCheckedRadioButtonId();
         radioButton=root.findViewById(selectedid);
-        radioanswer.put("Food Quality",radioButton.getText().toString());
-
-
-        radioGroup=root.findViewById(R.id.radio_answer_2);
-        selectedid=radioGroup.getCheckedRadioButtonId();
-        radioButton=root.findViewById(selectedid);
-        radioanswer.put("Food Quantity",radioButton.getText().toString());
+        if(radioButton!=null)radioanswer.put("Food Quality",radioButton.getText().toString());
+        else return false;
 
         radioGroup=root.findViewById(R.id.radio_answer_2);
         selectedid=radioGroup.getCheckedRadioButtonId();
         radioButton=root.findViewById(selectedid);
-        radioanswer.put("Mess are Hygienic",radioButton.getText().toString());
+        if(radioButton!=null)radioanswer.put("Food Quantity",radioButton.getText().toString());
+        else return false;
 
         radioGroup=root.findViewById(R.id.radio_answer_2);
         selectedid=radioGroup.getCheckedRadioButtonId();
         radioButton=root.findViewById(selectedid);
-        radioanswer.put("Food Hygienic",radioButton.getText().toString());
+        if(radioButton!=null)radioanswer.put("Mess are Hygienic",radioButton.getText().toString());
+        else return false;
 
         radioGroup=root.findViewById(R.id.radio_answer_2);
         selectedid=radioGroup.getCheckedRadioButtonId();
         radioButton=root.findViewById(selectedid);
-        radioanswer.put("Utensils Hygienic",radioButton.getText().toString());
+        if(radioButton!=null)radioanswer.put("Food Hygienic",radioButton.getText().toString());
+        else return false;
 
         radioGroup=root.findViewById(R.id.radio_answer_2);
         selectedid=radioGroup.getCheckedRadioButtonId();
         radioButton=root.findViewById(selectedid);
-        radioanswer.put("Food Price",radioButton.getText().toString());
+        if(radioButton!=null)radioanswer.put("Utensils Hygienic",radioButton.getText().toString());
+        else return false;
 
+        radioGroup=root.findViewById(R.id.radio_answer_2);
+        selectedid=radioGroup.getCheckedRadioButtonId();
+        radioButton=root.findViewById(selectedid);
+        if(radioButton!=null)radioanswer.put("Food Price",radioButton.getText().toString());
+        else return false;
 
+        return true;
     }
 }
