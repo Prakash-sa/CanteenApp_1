@@ -19,6 +19,7 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProviders;
 
 import com.example.canteenapp.R;
+import com.example.canteenapp.model.Feedback;
 import com.example.canteenapp.ui.student.StudentMainActivity;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
@@ -29,7 +30,7 @@ public class FeedbackFragment extends Fragment {
 
     private FeedbackViewModel feedbackViewModel;
     private FirebaseDatabase database = FirebaseDatabase.getInstance();
-    private DatabaseReference myRef = database.getReference("Students");
+    private DatabaseReference myRef = database.getReference("Students").child("Feedback");
     private HashMap<String,String>radioanswer=new HashMap<String,String>();
 
     private View root;
@@ -96,24 +97,46 @@ public class FeedbackFragment extends Fragment {
             return;
         }
 
-//        DatabaseReference dbRef = FirebaseDatabase.getInstance().getReference("feedback/" + Home.user.getUid());
-//
-//        Map<String, Object> data = new HashMap<>();
-//        data.put("email", email);
-//        data.put((new Date()).toLocaleString(), feed);
-//
-//        dbRef.updateChildren(data).addOnCompleteListener(new OnCompleteListener<Void>() {
-//            @Override
-//            public void onComplete(@NonNull Task<Void> task) {
-//                if (task.isSuccessful()) {
-//                    Toast.makeText(Feedback.this, "Feedback submitted", Toast.LENGTH_LONG).show();
-//                    finish();
-//                } else {
-//                    Toast.makeText(Feedback.this, "Please try again later", Toast.LENGTH_LONG).show();
-//                    try { Log.d(TAG, "onComplete: "+task.getException().getLocalizedMessage()); } catch (Exception e) { e.printStackTrace(); }
-//                }
-//            }
-//        });
+        radioanswer.clear();
+        radioButton();
+        Feedback feedback=new Feedback(feed,radioanswer);
+
+        myRef.push().setValue(feedback);
+    }
+
+    private void radioButton(){
+
+        radioGroup=root.findViewById(R.id.radio_answer_1);
+        int selectedid=radioGroup.getCheckedRadioButtonId();
+        radioButton=root.findViewById(selectedid);
+        radioanswer.put("Food Quality",radioButton.getText().toString());
+
+
+        radioGroup=root.findViewById(R.id.radio_answer_2);
+        selectedid=radioGroup.getCheckedRadioButtonId();
+        radioButton=root.findViewById(selectedid);
+        radioanswer.put("Food Quantity",radioButton.getText().toString());
+
+        radioGroup=root.findViewById(R.id.radio_answer_2);
+        selectedid=radioGroup.getCheckedRadioButtonId();
+        radioButton=root.findViewById(selectedid);
+        radioanswer.put("Mess are Hygienic",radioButton.getText().toString());
+
+        radioGroup=root.findViewById(R.id.radio_answer_2);
+        selectedid=radioGroup.getCheckedRadioButtonId();
+        radioButton=root.findViewById(selectedid);
+        radioanswer.put("Food Hygienic",radioButton.getText().toString());
+
+        radioGroup=root.findViewById(R.id.radio_answer_2);
+        selectedid=radioGroup.getCheckedRadioButtonId();
+        radioButton=root.findViewById(selectedid);
+        radioanswer.put("Utensils Hygienic",radioButton.getText().toString());
+
+        radioGroup=root.findViewById(R.id.radio_answer_2);
+        selectedid=radioGroup.getCheckedRadioButtonId();
+        radioButton=root.findViewById(selectedid);
+        radioanswer.put("Food Price",radioButton.getText().toString());
+
 
     }
 }
