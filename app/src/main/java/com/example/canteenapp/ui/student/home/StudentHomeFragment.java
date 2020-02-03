@@ -359,7 +359,7 @@ public class StudentHomeFragment extends Fragment {
         adapter4=new ArrayAdapter<>(getContext(),R.layout.listview_food,R.id.food_menu_textview,items4);
         breakfast_extra_listView.setAdapter(adapter4);
         adapter5=new ArrayAdapter<>(getContext(),R.layout.listview_food,R.id.food_menu_textview,items5);
-        lunch_extra_listView.setAdapter(adapter4);
+        lunch_extra_listView.setAdapter(adapter5);
         adapter6=new ArrayAdapter<>(getContext(),R.layout.listview_food,R.id.food_menu_textview,items6);
         dinner_extra_listView.setAdapter(adapter6);
 

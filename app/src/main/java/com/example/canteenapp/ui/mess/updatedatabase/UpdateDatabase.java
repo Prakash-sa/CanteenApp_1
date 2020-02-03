@@ -23,9 +23,12 @@ import com.google.firebase.database.ValueEventListener;
 public class UpdateDatabase extends AppCompatActivity {
 
 
+    private EditText price1,price2,price3,price4,price5,price6,price7,price8,price9,price10;
+
     private EditText editText1,editText2,editText3,editText4,editText5,editText6,editText7,editText8,editText9,editText10;
     private TextView title;
     private String arg1,arg2,arg3,arg4,arg5,arg6,arg7,arg8,arg9,arg10;
+    private String argprice1,argprice2,argprice3,argprice4,argprice5,argprice6,argprice7,argprice8,argprice9,argprice10;
     private MessDatabaseMenuLunch messDatabaseMenuLunch;
     private MessDatabaseExtrasLunch messDatabaseExtrasLunch;
     private Button submit_bt;
@@ -50,6 +53,17 @@ public class UpdateDatabase extends AppCompatActivity {
         editText8=findViewById(R.id.databaseedit_text_8);
         editText9=findViewById(R.id.databaseedit_text_9);
         editText10=findViewById(R.id.databaseedit_text_10);
+
+        price1=findViewById(R.id.priceedit_text_1);
+        price2=findViewById(R.id.priceedit_text_2);
+        price3=findViewById(R.id.priceedit_text_3);
+        price4=findViewById(R.id.priceedit_text_4);
+        price5=findViewById(R.id.priceedit_text_5);
+        price6=findViewById(R.id.priceedit_text_6);
+        price7=findViewById(R.id.priceedit_text_7);
+        price8=findViewById(R.id.priceedit_text_8);
+        price9=findViewById(R.id.priceedit_text_9);
+        price10=findViewById(R.id.priceedit_text_10);
 
         final String type1=getIntent().getStringExtra("type");
         final String day=getIntent().getStringExtra("day");
@@ -164,7 +178,39 @@ public class UpdateDatabase extends AppCompatActivity {
                     if(editText10.getText().toString()!=null)arg10=editText10.getText().toString();
                     else arg10="null";
 
-                    messDatabaseExtrasLunch =new MessDatabaseExtrasLunch(arg1,arg2,arg3,arg4,arg5,arg6,arg7,arg8,arg9,arg10);
+                    //price
+
+                    if(price1.getText().toString()!=null)arg1=price1.getText().toString();
+                    else argprice1="null";
+
+                    if(price2.getText().toString()!=null)argprice2=price2.getText().toString();
+                    else argprice2="null";
+
+                    if(price3.getText().toString()!=null)argprice3=price3.getText().toString();
+                    else argprice3="null";
+
+                    if(price4.getText().toString()!=null)argprice4=price4.getText().toString();
+                    else argprice4="null";
+
+                    if(price5.getText().toString()!=null)argprice5=price5.getText().toString();
+                    else argprice5="null";
+
+                    if(price6.getText().toString()!=null)argprice6=price6.getText().toString();
+                    else argprice6="null";
+
+                    if(price7.getText().toString()!=null)argprice7=price7.getText().toString();
+                    else argprice7="null";
+
+                    if(price8.getText().toString()!=null)argprice8=price8.getText().toString();
+                    else argprice8="null";
+
+                    if(price9.getText().toString()!=null)argprice9=price9.getText().toString();
+                    else argprice9="null";
+
+                    if(price10.getText().toString()!=null)argprice10=price10.getText().toString();
+                    else argprice10="null";
+
+                    messDatabaseExtrasLunch =new MessDatabaseExtrasLunch(arg1,arg2,arg3,arg4,arg5,arg6,arg7,arg8,arg9,arg10,argprice1,argprice2,argprice3,argprice4,argprice5,argprice6,argprice7,argprice8,argprice9,argprice10);
                     myRef.child(type1).child(day).child(timetype).setValue(messDatabaseExtrasLunch);
                 }
             }

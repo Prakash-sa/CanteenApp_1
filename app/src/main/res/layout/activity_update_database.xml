@@ -132,6 +132,7 @@
                         <com.google.android.material.textfield.TextInputEditText
                             android:layout_margin="4dp"
                             android:hint="Price"
+                            android:inputType="number"
                             android:id="@+id/priceedit_text_1"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content" />
@@ -139,6 +140,8 @@
                         <com.google.android.material.textfield.TextInputEditText
                             android:layout_margin="4dp"
                             android:hint="Price"
+
+                            android:inputType="number"
                             android:id="@+id/priceedit_text_2"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content" />
@@ -146,6 +149,7 @@
                         <com.google.android.material.textfield.TextInputEditText
                             android:layout_margin="4dp"
                             android:hint="Price"
+                            android:inputType="number"
                             android:id="@+id/priceedit_text_3"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content" />
@@ -153,6 +157,7 @@
                         <com.google.android.material.textfield.TextInputEditText
                             android:layout_margin="4dp"
                             android:hint="Price"
+                            android:inputType="number"
                             android:id="@+id/priceedit_text_4"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content" />
@@ -160,6 +165,7 @@
                         <com.google.android.material.textfield.TextInputEditText
                             android:layout_margin="4dp"
                             android:hint="Price"
+                            android:inputType="number"
                             android:id="@+id/priceedit_text_5"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content" />
@@ -167,6 +173,7 @@
                         <com.google.android.material.textfield.TextInputEditText
                             android:layout_margin="4dp"
                             android:hint="Price"
+                            android:inputType="number"
                             android:id="@+id/priceedit_text_6"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content" />
@@ -174,6 +181,7 @@
                         <com.google.android.material.textfield.TextInputEditText
                             android:layout_margin="4dp"
                             android:hint="Price"
+                            android:inputType="number"
                             android:id="@+id/priceedit_text_7"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content" />
@@ -181,6 +189,7 @@
                         <com.google.android.material.textfield.TextInputEditText
                             android:layout_margin="4dp"
                             android:hint="Price"
+                            android:inputType="number"
                             android:id="@+id/priceedit_text_8"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content" />
@@ -188,6 +197,7 @@
                         <com.google.android.material.textfield.TextInputEditText
                             android:layout_margin="4dp"
                             android:hint="Price"
+                            android:inputType="number"
                             android:id="@+id/priceedit_text_9"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content" />
@@ -195,6 +205,7 @@
                         <com.google.android.material.textfield.TextInputEditText
                             android:layout_margin="4dp"
                             android:hint="Price"
+                            android:inputType="number"
                             android:id="@+id/priceedit_text_10"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content" />
