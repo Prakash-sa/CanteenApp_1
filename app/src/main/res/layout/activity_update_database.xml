@@ -27,86 +27,179 @@
                 android:layout_height="wrap_content">
 
                 <LinearLayout
-                    android:layout_margin="16dp"
-                    android:orientation="vertical"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
-                    <TextView
-                        android:id="@+id/title_database"
-                        android:text="Change Menu"
-                        android:textAppearance="@style/TextAppearance.MaterialComponents.Headline5"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content" />
 
-                    <com.google.android.material.textfield.TextInputEditText
-                        android:layout_margin="4dp"
-                        android:hint="Item Name"
-                        android:id="@+id/databaseedit_text_1"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content" />
+                    <LinearLayout
+                        android:layout_weight="1"
+                        android:layout_margin="16dp"
+                        android:orientation="vertical"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content">
+                        <TextView
+                            android:id="@+id/title_database"
+                            android:text="Change Menu"
+                            android:textAppearance="@style/TextAppearance.MaterialComponents.Headline5"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" />
 
-                    <com.google.android.material.textfield.TextInputEditText
-                        android:layout_margin="4dp"
-                        android:hint="Item Name"
-                        android:id="@+id/databaseedit_text_2"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content" />
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:layout_margin="4dp"
+                            android:hint="Item Name"
+                            android:id="@+id/databaseedit_text_1"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content" />
 
-                    <com.google.android.material.textfield.TextInputEditText
-                        android:layout_margin="4dp"
-                        android:hint="Item Name"
-                        android:id="@+id/databaseedit_text_3"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content" />
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:layout_margin="4dp"
+                            android:hint="Item Name"
+                            android:id="@+id/databaseedit_text_2"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content" />
 
-                    <com.google.android.material.textfield.TextInputEditText
-                        android:layout_margin="4dp"
-                        android:hint="Item Name"
-                        android:id="@+id/databaseedit_text_4"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content" />
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:layout_margin="4dp"
+                            android:hint="Item Name"
+                            android:id="@+id/databaseedit_text_3"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content" />
 
-                    <com.google.android.material.textfield.TextInputEditText
-                        android:layout_margin="4dp"
-                        android:hint="Item Name"
-                        android:id="@+id/databaseedit_text_5"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content" />
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:layout_margin="4dp"
+                            android:hint="Item Name"
+                            android:id="@+id/databaseedit_text_4"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content" />
 
-                    <com.google.android.material.textfield.TextInputEditText
-                        android:layout_margin="4dp"
-                        android:hint="Item Name"
-                        android:id="@+id/databaseedit_text_6"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content" />
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:layout_margin="4dp"
+                            android:hint="Item Name"
+                            android:id="@+id/databaseedit_text_5"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content" />
 
-                    <com.google.android.material.textfield.TextInputEditText
-                        android:layout_margin="4dp"
-                        android:hint="Item Name"
-                        android:id="@+id/databaseedit_text_7"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content" />
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:layout_margin="4dp"
+                            android:hint="Item Name"
+                            android:id="@+id/databaseedit_text_6"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content" />
 
-                    <com.google.android.material.textfield.TextInputEditText
-                        android:layout_margin="4dp"
-                        android:hint="Item Name"
-                        android:id="@+id/databaseedit_text_8"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content" />
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:layout_margin="4dp"
+                            android:hint="Item Name"
+                            android:id="@+id/databaseedit_text_7"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content" />
 
-                    <com.google.android.material.textfield.TextInputEditText
-                        android:layout_margin="4dp"
-                        android:hint="Item Name"
-                        android:id="@+id/databaseedit_text_9"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content" />
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:layout_margin="4dp"
+                            android:hint="Item Name"
+                            android:id="@+id/databaseedit_text_8"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content" />
 
-                    <com.google.android.material.textfield.TextInputEditText
-                        android:layout_margin="4dp"
-                        android:hint="Item Name"
-                        android:id="@+id/databaseedit_text_10"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content" />
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:layout_margin="4dp"
+                            android:hint="Item Name"
+                            android:id="@+id/databaseedit_text_9"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content" />
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:layout_margin="4dp"
+                            android:hint="Item Name"
+                            android:id="@+id/databaseedit_text_10"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/price_container"
+                        android:visibility="gone"
+                        android:layout_weight="1"
+                        android:layout_margin="16dp"
+                        android:orientation="vertical"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content">
+                        <TextView
+                            android:text="Price"
+                            android:textAppearance="@style/TextAppearance.MaterialComponents.Headline5"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" />
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:layout_margin="4dp"
+                            android:hint="Price"
+                            android:id="@+id/priceedit_text_1"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content" />
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:layout_margin="4dp"
+                            android:hint="Price"
+                            android:id="@+id/priceedit_text_2"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content" />
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:layout_margin="4dp"
+                            android:hint="Price"
+                            android:id="@+id/priceedit_text_3"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content" />
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:layout_margin="4dp"
+                            android:hint="Price"
+                            android:id="@+id/priceedit_text_4"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content" />
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:layout_margin="4dp"
+                            android:hint="Price"
+                            android:id="@+id/priceedit_text_5"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content" />
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:layout_margin="4dp"
+                            android:hint="Price"
+                            android:id="@+id/priceedit_text_6"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content" />
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:layout_margin="4dp"
+                            android:hint="Price"
+                            android:id="@+id/priceedit_text_7"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content" />
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:layout_margin="4dp"
+                            android:hint="Price"
+                            android:id="@+id/priceedit_text_8"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content" />
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:layout_margin="4dp"
+                            android:hint="Price"
+                            android:id="@+id/priceedit_text_9"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content" />
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:layout_margin="4dp"
+                            android:hint="Price"
+                            android:id="@+id/priceedit_text_10"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content" />
+
+                    </LinearLayout>
 
                 </LinearLayout>
 
