@@ -12,14 +12,23 @@ public class MessDatabaseExtrasDinner {
     private String Optional4;
     private String Optional5;
     private String Optional6;
-    private String price1,price2,price3,price4,price5,price6,price7,price8,price9,price10;
+    private String init;
+    private String price2;
+    private String price3;
+    private String price4;
+    private String price5;
+    private String price6;
+    private String price7;
+    private String price8;
+    private String price9;
+    private String price10;
 
     public MessDatabaseExtrasDinner(){
 
     }
     public MessDatabaseExtrasDinner(String GheeType, String SweetType, String JuiceType, String IceCreamType, String Optional1, String Optional2, String Optional3, String Optional4, String Optional5, String Optional6,
-                                       String price1,String price2,String price3,String price4,String price5,String price6,
-                                       String price7,String price8,String price9,String price10){
+                                   String price1,String price2,String price3,String price4,String price5,String price6,
+                                   String price7,String price8,String price9,String price10){
         this.GheeType=GheeType;
         this.SweetType=SweetType;
         this.JuiceType=JuiceType;
@@ -30,7 +39,7 @@ public class MessDatabaseExtrasDinner {
         this.Optional4=Optional4;
         this.Optional5=Optional5;
         this.Optional6=Optional6;
-        this.price1=price1;
+        this.init=price1;
         this.price2=price2;
         this.price3=price3;
         this.price4=price4;
@@ -44,11 +53,11 @@ public class MessDatabaseExtrasDinner {
     }
 
     public String getPrice1() {
-        return price1;
+        return init;
     }
 
     public void setPrice1(String price1) {
-        this.price1 = price1;
+        this.init = price1;
     }
 
     public String getPrice2() {
@@ -122,6 +131,7 @@ public class MessDatabaseExtrasDinner {
     public void setPrice10(String price10) {
         this.price10 = price10;
     }
+
     public String getGheeType() {
         return GheeType;
     }
