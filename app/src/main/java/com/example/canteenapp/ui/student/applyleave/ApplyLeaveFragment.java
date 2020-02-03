@@ -1,6 +1,7 @@
 package com.example.canteenapp.ui.student.applyleave;
 
 import android.app.AlarmManager;
+import android.icu.text.SimpleDateFormat;
 import android.icu.util.Calendar;
 import android.os.Bundle;
 import android.util.Log;
@@ -50,12 +51,16 @@ public class ApplyLeaveFragment extends Fragment {
             @Override
             public void onSelectedDayChange(@NonNull CalendarView view, int year, int month, int dayOfMonth) {
                 if (STATE % 2 == 0) {
-                    startDate = new Date(year, month, dayOfMonth).getTime();
+                    Calendar calendar = Calendar.getInstance();
+                    calendar.set(year, month, dayOfMonth);
+                    startDate = (calendar.getTimeInMillis());
                     STATE = (STATE + 1) % 2;
                     setStart();
                     Toast.makeText(getContext(), "Now select the end date", Toast.LENGTH_LONG).show();
                 } else {
-                    endDate = new Date(year, month, dayOfMonth).getTime();
+                    Calendar calendar = Calendar.getInstance();
+                    calendar.set(year, month, dayOfMonth);
+                    endDate = (calendar.getTimeInMillis());
                     STATE = (STATE + 1) % 2;
                     setEnd();
                     colorRange();
@@ -79,13 +84,14 @@ public class ApplyLeaveFragment extends Fragment {
 
     private void setStart() {
         ((TextView) root.findViewById(R.id.end_date)).setText("--/--/----");
-        ((TextView) root.findViewById(R.id.start_date)).setText((new Date(startDate)).toLocaleString());
+        ((TextView) root.findViewById(R.id.start_date)).setText(SimpleDateFormat.getDateInstance().format(startDate));
+        Log.d(TAG, "setStart: "+new Date(startDate).toString());
 
     }
 
     private void setEnd() {
 
-        ((TextView) root.findViewById(R.id.end_date)).setText((new Date(endDate)).toLocaleString());
+        ((TextView) root.findViewById(R.id.end_date)).setText(SimpleDateFormat.getDateInstance().format(endDate));
     }
 
     private void colorRange() {
