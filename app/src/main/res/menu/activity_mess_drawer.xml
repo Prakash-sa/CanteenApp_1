@@ -10,11 +10,11 @@
             android:title="@string/menu_home" />
         <item
             android:id="@+id/nav_update"
-            android:icon="@drawable/ic_home_black_24dp"
+            android:icon="@drawable/ic_restaurant_menu_black_24dp"
             android:title="@string/menu_changemenu"/>
         <item
             android:id="@+id/nav_mealtime"
-            android:icon="@drawable/ic_home_black_24dp"
+            android:icon="@drawable/ic_access_time_black_24dp"
             android:title="@string/menu_mealtime"/>
     </group>
 
