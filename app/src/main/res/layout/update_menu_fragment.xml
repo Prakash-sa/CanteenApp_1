@@ -325,6 +325,7 @@
                         <LinearLayout
                             android:alpha="0.6"
                             android:id="@+id/disable"
+                            android:clickable="true"
                             android:background="@color/white"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"

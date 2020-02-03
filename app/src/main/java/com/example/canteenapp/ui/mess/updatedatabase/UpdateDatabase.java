@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -22,7 +23,7 @@ import com.google.firebase.database.ValueEventListener;
 
 public class UpdateDatabase extends AppCompatActivity {
 
-
+    private final String TAG = "UpdateDatabase";
     private EditText price1,price2,price3,price4,price5,price6,price7,price8,price9,price10;
 
     private EditText editText1,editText2,editText3,editText4,editText5,editText6,editText7,editText8,editText9,editText10;
@@ -71,7 +72,7 @@ public class UpdateDatabase extends AppCompatActivity {
        // title.setText(type1);
 
         if(type1.equals("menu")){
-            myRef.child(type1).child(day).addValueEventListener(new ValueEventListener() {
+            myRef.child(type1).child(day).child(timetype).addValueEventListener(new ValueEventListener() {
                 @Override
                 public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                    messDatabaseMenuLunch =dataSnapshot.getValue(MessDatabaseMenuLunch.class);
