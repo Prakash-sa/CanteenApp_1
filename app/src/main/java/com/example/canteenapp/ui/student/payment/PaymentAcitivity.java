@@ -11,6 +11,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.canteenapp.R;
@@ -21,6 +22,7 @@ public class PaymentAcitivity extends AppCompatActivity {
 
 
     final int UPI_PAYMENT = 0;
+    private TextView extraAmount;
     private Button pay_bt;
 
     @Override
@@ -28,10 +30,19 @@ public class PaymentAcitivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_payment_acitivity);
         pay_bt=findViewById(R.id.payment_bt);
+        extraAmount = findViewById(R.id.extra_cost);
+
         pay_bt.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                payUsingUpi("Prakash Saini","sainiprakash525@okhdfcbank","Requesting money for extras in mess menu","100");
+                int amount = Integer.parseInt(extraAmount.getText().toString());
+
+                if (amount <= 0) {
+                    Toast.makeText(PaymentAcitivity.this, "Invalid selection.", Toast.LENGTH_LONG).show();
+                    return;
+                }
+
+                payUsingUpi("Prakash Saini","sainiprakash525@okhdfcbank","Requesting money for extras in mess menu","" + amount);
             }
         });
 
