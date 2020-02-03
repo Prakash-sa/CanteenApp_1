@@ -25,7 +25,11 @@ public class MealTime extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.meal_time_fragment, container, false);
+        View v = inflater.inflate(R.layout.meal_time_fragment, container, false);
+
+
+
+        return v;
     }
 
     @Override
