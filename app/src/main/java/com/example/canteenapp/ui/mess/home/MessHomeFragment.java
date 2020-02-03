@@ -161,8 +161,8 @@ public class MessHomeFragment extends Fragment {
         myRef.child("menu").child(today).child("Breakfast").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                messDatabaseMenuBreakfast=new MessDatabaseMenuBreakfast();
                 messDatabaseMenuBreakfast = dataSnapshot.getValue(MessDatabaseMenuBreakfast.class);
-                Log.i("adfadf", "set");
                 additemsBreakfast();
                 setAdapterforlist();
             }
@@ -176,6 +176,7 @@ public class MessHomeFragment extends Fragment {
         myRef.child("menu").child(today).child("Lunch").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                messDatabaseMenuLunch=new MessDatabaseMenuLunch();
                 messDatabaseMenuLunch=dataSnapshot.getValue(MessDatabaseMenuLunch.class);
                 additemsMenuLunch();
                 setAdapterforlist();
@@ -189,6 +190,7 @@ public class MessHomeFragment extends Fragment {
         myRef.child("menu").child(today).child("Dinner").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                messDatabaseMenuDinner=new MessDatabaseMenuDinner();
                 messDatabaseMenuDinner=dataSnapshot.getValue(MessDatabaseMenuDinner.class);
                 additemsMenuDinner();
                 setAdapterforlist();
@@ -202,6 +204,7 @@ public class MessHomeFragment extends Fragment {
         myRef.child("extra").child(today).child("Breakfast").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                messDatabaseMenuDinner=new MessDatabaseMenuDinner();
                 messDatabaseExtrasBreakfast=dataSnapshot.getValue(MessDatabaseExtrasBreakfast.class);
                 additemsExtraBreakfast();
                 setAdapterforlist();
@@ -216,6 +219,7 @@ public class MessHomeFragment extends Fragment {
         myRef.child("extra").child(today).child("Lunch").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                messDatabaseExtrasLunch=new MessDatabaseExtrasLunch();
                 messDatabaseExtrasLunch=dataSnapshot.getValue(MessDatabaseExtrasLunch.class);
                 additemsExtraLunch();
                 setAdapterforlist();
@@ -230,6 +234,7 @@ public class MessHomeFragment extends Fragment {
         myRef.child("extra").child(today).child("Dinner").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                messDatabaseExtrasDinner=new MessDatabaseExtrasDinner();
                 messDatabaseExtrasDinner=dataSnapshot.getValue(MessDatabaseExtrasDinner.class);
                 additemsExtraDinner();
                 setAdapterforlist();
@@ -244,6 +249,7 @@ public class MessHomeFragment extends Fragment {
     }
 
     private void additemsBreakfast() {
+        items1.clear();
         if ( messDatabaseMenuBreakfast == null )
             return;
 
@@ -273,6 +279,7 @@ public class MessHomeFragment extends Fragment {
 
     private void additemsMenuLunch() {
 
+        items2.clear();
         if ( messDatabaseMenuLunch == null)
             return;
         if (messDatabaseMenuLunch.getChapatiType() != null)
@@ -298,6 +305,7 @@ public class MessHomeFragment extends Fragment {
     }
 
     private void additemsMenuDinner() {
+        items3.clear();
         if ( messDatabaseMenuDinner == null)
             return;
         if (messDatabaseMenuDinner.getChapatiType() != null)
@@ -324,6 +332,7 @@ public class MessHomeFragment extends Fragment {
     }
 
     private void additemsExtraBreakfast() {
+        items4.clear();
         if (messDatabaseExtrasBreakfast == null)
             return;
         if (messDatabaseExtrasBreakfast.getGheeType() != null)
@@ -350,6 +359,7 @@ public class MessHomeFragment extends Fragment {
     }
 
     private void additemsExtraLunch() {
+        items5.clear();
         if (messDatabaseExtrasLunch == null )
             return;
         if (messDatabaseExtrasLunch.getGheeType() != null)
@@ -375,6 +385,7 @@ public class MessHomeFragment extends Fragment {
     }
 
     private void additemsExtraDinner(){
+        items6.clear();
         if (messDatabaseExtrasDinner == null )
             return;
         if(messDatabaseExtrasDinner.getGheeType()!=null)items6.add(messDatabaseExtrasDinner.getGheeType());
