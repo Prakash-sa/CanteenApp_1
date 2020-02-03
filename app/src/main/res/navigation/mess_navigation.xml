@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/nav_home_mess"
-        android:name="com.example.canteenapp.ui.mess.home.HomeFragment"
+        android:name="com.example.canteenapp.ui.mess.home.MessHomeFragment"
         android:label="@string/menu_home"
         tools:layout="@layout/fragment_mess_home" />
 

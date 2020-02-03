@@ -1,14 +1,14 @@
-package com.example.canteenapp.ui.mess.home;
+package com.example.canteenapp.ui.student.home;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
-public class HomeViewModel extends ViewModel {
+public class StudentHomeViewModel extends ViewModel {
 
     private MutableLiveData<String> mText;
 
-    public HomeViewModel() {
+    public StudentHomeViewModel() {
         mText = new MutableLiveData<>();
         mText.setValue("This is home fragment");
     }

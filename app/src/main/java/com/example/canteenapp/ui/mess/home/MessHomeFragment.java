@@ -1,12 +1,17 @@
 package com.example.canteenapp.ui.mess.home;
 
+import android.app.AlarmManager;
+import android.icu.text.DateFormat;
+import android.icu.text.SimpleDateFormat;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
@@ -27,17 +32,22 @@ import com.google.firebase.database.ValueEventListener;
 
 import org.lucasr.twowayview.TwoWayView;
 
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
+import java.util.Date;
 import java.util.Locale;
 
-import static com.example.canteenapp.ui.student.home.HomeFragment.getCurrentDay;
+import static com.example.canteenapp.ui.student.home.StudentHomeFragment.getCurrentDay;
 
-public class HomeFragment extends Fragment {
+import static android.icu.text.DateFormat.getDateInstance;
+
+public class MessHomeFragment extends Fragment {
+    private TextView setDay;
+    private ImageView prevDay, nextDay;
 
     private String today;
+    private final String TAG = "MessHome";
     private MessDatabaseMenuLunch messDatabaseMenuLunch;
     private MessDatabaseMenuBreakfast messDatabaseMenuBreakfast;
     private MessDatabaseMenuDinner messDatabaseMenuDinner;
@@ -45,6 +55,7 @@ public class HomeFragment extends Fragment {
     private MessDatabaseExtrasDinner messDatabaseExtrasDinner;
     private MessDatabaseExtrasLunch messDatabaseExtrasLunch;
 
+    private MessHomeViewModel messHomeViewModel;
     private FirebaseDatabase database = FirebaseDatabase.getInstance();
     private DatabaseReference myRef = database.getReference("Mess");
     private TwoWayView breakfast_menu_listView,lunch_menu_listView,dinner_menu_listView,breakfast_extra_listView,lunch_extra_listView,dinner_extra_listView;
@@ -57,13 +68,16 @@ public class HomeFragment extends Fragment {
     private List<String>items6=new ArrayList<>();
 
 
-    private HomeViewModel homeViewModel;
+    private View.OnClickListener prev, next, curr;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        homeViewModel =
-                ViewModelProviders.of(this).get(HomeViewModel.class);
+        messHomeViewModel =
+                ViewModelProviders.of(this).get(MessHomeViewModel.class);
         View root = inflater.inflate(R.layout.fragment_mess_home, container, false);
+        setDay = root.findViewById(R.id.cur_day);
+        prevDay = root.findViewById(R.id.prev_day);
+        nextDay = root.findViewById(R.id.next_day);
 
         today=getCurrentDay();
 
@@ -77,6 +91,39 @@ public class HomeFragment extends Fragment {
 
         getfromfirabase();
 
+
+        curr = new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                setDate();
+            }
+        };
+
+        prev = new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                DateFormat df = SimpleDateFormat.getDateInstance();
+                long time = new Date().getTime() - AlarmManager.INTERVAL_DAY;
+                setDay.setText(df.format(new Date(time)));
+                prevDay.setVisibility(View.GONE);
+                nextDay.setOnClickListener(curr);
+                reinit(time);
+            }
+        };
+
+        next = new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                DateFormat df = SimpleDateFormat.getDateInstance();
+                long time = new Date().getTime() + AlarmManager.INTERVAL_DAY;
+                setDay.setText(df.format(new Date(time)));
+                nextDay.setVisibility(View.GONE);
+                prevDay.setOnClickListener(curr);
+                reinit(time);
+            }
+        };
+
+        setDate();
 
         return root;
     }
@@ -220,7 +267,6 @@ public class HomeFragment extends Fragment {
             items2.add(messDatabaseMenuLunch.getOptional3());
         if (messDatabaseMenuLunch.getOptional4() != null)
             items2.add(messDatabaseMenuLunch.getOptional4());
-
     }
 
     private void additemsMenuDinner() {
@@ -337,7 +383,23 @@ public class HomeFragment extends Fragment {
 
 
 
-    public static String getCurrentDay(){
+    private void setDate() {
+        // update values/details for the shown date
+        DateFormat sd = getDateInstance();
+        long time = new Date().getTime();
+        setDay.setText(sd.format(new Date()));
+        prevDay.setVisibility(View.VISIBLE);
+        nextDay.setVisibility(View.VISIBLE);
+        prevDay.setOnClickListener(prev);
+        nextDay.setOnClickListener(next);
+        reinit(time);
+    }
+
+    private void reinit(long time) {
+
+    }
+
+    private static String getCurrentDay(){
         SimpleDateFormat dayFormat = new SimpleDateFormat("EEEE", Locale.US);
         Calendar calendar = Calendar.getInstance();
         return dayFormat.format(calendar.getTime());

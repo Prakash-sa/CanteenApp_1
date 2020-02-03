@@ -25,6 +25,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
+import java.util.Date;
 
 public class MyAccountFragment extends Fragment {
 
@@ -33,6 +34,7 @@ public class MyAccountFragment extends Fragment {
     private MyAccountViewModel myAccountViewModel;
     private TextView student_name,student_email,student_mess_id,student_rebate,student_refund,student_monthly_payment,student_extras_payment;
     private ImageView profile_picture;
+    private TextView day;
 
     private Context mcontext;
     private FirebaseDatabase database = FirebaseDatabase.getInstance();
@@ -65,6 +67,7 @@ public class MyAccountFragment extends Fragment {
         student_refund=root.findViewById(R.id.student_refund);
         student_monthly_payment=root.findViewById(R.id.student_monthly_payment);
         student_extras_payment=root.findViewById(R.id.student_extras_payment);
+//        day = root.findViewById(R.id.day);
 
         profile_picture=root.findViewById(R.id.student_profile_picture);
         student_name=root.findViewById(R.id.student_name);

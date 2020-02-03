@@ -1,6 +1,5 @@
 package com.example.canteenapp.ui.mess.updatemenu;
 
-import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 
 import android.app.AlarmManager;
@@ -16,20 +15,15 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.CalendarView;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RadioGroup;
-import android.widget.TextView;
 
 import com.example.canteenapp.R;
-import com.example.canteenapp.ui.mess.home.HomeViewModel;
 import com.example.canteenapp.ui.mess.updatedatabase.UpdateDatabase;
 
 import java.util.Date;
-
-import static com.example.canteenapp.ui.mess.home.HomeFragment.getCurrentDay;
 
 public class UpdateMenu extends Fragment {
 

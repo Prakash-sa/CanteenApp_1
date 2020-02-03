@@ -37,7 +37,7 @@ import java.util.Calendar;
 import java.util.List;
 import java.util.Locale;
 
-public class HomeFragment extends Fragment {
+public class StudentHomeFragment extends Fragment {
 
 
     private MessDatabaseMenuLunch messDatabaseMenuLunch;
@@ -51,7 +51,7 @@ public class HomeFragment extends Fragment {
     private DatabaseReference myRef = database.getReference("Mess");
     private String today;
     private TwoWayView breakfast_menu_listView,lunch_menu_listView,dinner_menu_listView,breakfast_extra_listView,lunch_extra_listView,dinner_extra_listView;
-    private HomeViewModel homeViewModel;
+    private StudentHomeViewModel studentHomeViewModel;
     ArrayAdapter<String>adapter1,adapter2,adapter3,adapter4,adapter5,adapter6;
     private List<String>items1=new ArrayList<>();
     private List<String>items2=new ArrayList<>();
@@ -62,8 +62,8 @@ public class HomeFragment extends Fragment {
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        homeViewModel =
-                ViewModelProviders.of(this).get(HomeViewModel.class);
+        studentHomeViewModel =
+                ViewModelProviders.of(this).get(StudentHomeViewModel.class);
         View root = inflater.inflate(R.layout.fragment_home, container, false);
 
         today=getCurrentDay();
