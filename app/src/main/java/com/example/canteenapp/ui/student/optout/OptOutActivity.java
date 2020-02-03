@@ -124,6 +124,9 @@ public class OptOutActivity extends AppCompatActivity {
         // get
         today = (new SimpleDateFormat("EEEE", Locale.getDefault())).format(baseTime);
         // getfromfirebase();
+        breakfast.setChecked(false);
+        lunch.setChecked(false);
+        dinner.setChecked(false);
         setStatus();
     }
 
