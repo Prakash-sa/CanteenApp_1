@@ -1,9 +1,306 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ui.student.optout.OptOutActivity">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <LinearLayout
+        android:background="@color/colorAccent"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/cur_day"
+                android:layout_marginTop="32dp"
+                android:layout_marginBottom="32dp"
+                android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+                android:text="Feb 5, 2020"
+                android:textAlignment="center"
+                android:textColor="@color/white"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <ImageView
+                android:id="@+id/prev_day"
+                android:clickable="true"
+                android:focusable="true"
+                android:background="?selectableItemBackgroundBorderless"
+                android:paddingEnd="8dp"
+                android:paddingStart="8dp"
+                android:layout_alignParentStart="true"
+                android:layout_centerVertical="true"
+                android:src="@drawable/white_arrow_left"
+                android:layout_width="wrap_content"
+                android:layout_height="64dp"
+                android:contentDescription="Show about previous day" />
+
+            <ImageView
+                android:id="@+id/next_day"
+                android:clickable="true"
+                android:focusable="true"
+                android:background="?selectableItemBackgroundBorderless"
+                android:paddingEnd="8dp"
+                android:paddingStart="8dp"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:src="@drawable/white_arrow_right"
+                android:layout_width="wrap_content"
+                android:layout_height="64dp"
+                android:contentDescription="Show about next day" />
+
+        </RelativeLayout>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <androidx.cardview.widget.CardView
+                app:cardCornerRadius="8dp"
+                app:cardElevation="4dp"
+                android:layout_margin="4dp"
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content">
+
+                <LinearLayout
+                    android:layout_margin="4dp"
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <TextView
+                        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+                        android:text="Breakfast Count"
+                        android:maxLines="2"
+                        android:textAlignment="center"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" />
+
+                    <TextView
+                        android:id="@+id/breakfast_count"
+                        android:text="111"
+                        android:maxLines="1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textAlignment="center"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Display1" />
+
+                    <TextView
+                        android:id="@+id/breakfast_status"
+                        android:text="STATUS"
+                        android:textAlignment="center"
+                        android:padding="5dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="32dp"/>
+
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                app:cardCornerRadius="8dp"
+                app:cardElevation="4dp"
+                android:layout_margin="4dp"
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content">
+
+                <LinearLayout
+                    android:layout_margin="4dp"
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <TextView
+                        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+                        android:text="Lunch Count"
+                        android:maxLines="2"
+                        android:textAlignment="center"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" />
+
+                    <TextView
+                        android:id="@+id/lunch_count"
+                        android:text="180"
+                        android:maxLines="1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textAlignment="center"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Display1" />
+
+                    <TextView
+                        android:id="@+id/lunch_status"
+                        android:text="STATUS"
+                        android:textAlignment="center"
+                        android:padding="5dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="32dp"/>
+
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                app:cardCornerRadius="8dp"
+                app:cardElevation="4dp"
+                android:layout_margin="4dp"
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content">
+
+                <LinearLayout
+                    android:layout_margin="4dp"
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <TextView
+                        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+                        android:maxLines="2"
+                        android:text="Dinner Count"
+                        android:textAlignment="center"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" />
+
+                    <TextView
+                        android:id="@+id/dinner_count"
+                        android:text="220"
+                        android:maxLines="1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textAlignment="center"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Display1" />
+
+                    <TextView
+                        android:id="@+id/dinner_status"
+                        android:text="STATUS"
+                        android:textAlignment="center"
+                        android:padding="5dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="32dp"/>
+
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+
+        </LinearLayout>
+
+        <androidx.cardview.widget.CardView
+            android:layout_marginTop="4dp"
+            android:layout_weight="3"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_gravity="center"
+            android:elevation="10dp"
+            app:cardCornerRadius="16dp" >
+
+            <ScrollView
+                android:layout_marginTop="16dp"
+                android:scrollbars="none"
+                android:overScrollMode="never"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <LinearLayout
+                    android:layout_gravity="center_vertical"
+                    android:padding="16dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <CheckBox
+                        android:id="@+id/breakfast"
+                        android:text="Opt out for Breakfast"
+                        android:maxLines="2"
+                        android:layout_margin="8dp"
+                        android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" />
+
+                    <CheckBox
+                        android:id="@+id/lunch"
+                        android:text="Opt out for Lunch"
+                        android:maxLines="2"
+                        android:layout_margin="8dp"
+                        android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" />
+
+                    <CheckBox
+                        android:id="@+id/dinner"
+                        android:text="Opt out for Dinner"
+                        android:maxLines="2"
+                        android:layout_margin="8dp"
+                        android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" />
+
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/apply_leave"
+                        android:layout_width="wrap_content"
+                        android:layout_height="48dp"
+                        android:layout_gravity="center"
+                        android:layout_margin="24dp"
+                        android:background="?selectableItemBackgroundBorderless"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:minWidth="72dp"
+                        app:cardBackgroundColor="@color/colorAccent"
+                        app:cardCornerRadius="24dp">
+
+                        <TextView
+                            android:textAppearance="@style/TextAppearance.MaterialComponents.Headline6"
+                            android:textAlignment="center"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:textColor="@color/white"
+                            android:layout_marginStart="24dp"
+                            android:layout_marginEnd="24dp"
+                            android:background="#00ffffff"
+                            android:clickable="false"
+                            android:gravity="center"
+                            android:text="Opt Out" />
+
+                    </androidx.cardview.widget.CardView>
+
+                </LinearLayout>
+
+            </ScrollView>
+
+        </androidx.cardview.widget.CardView>
+
+        <LinearLayout
+            android:layout_marginTop="-16dp"
+            android:background="@color/white"
+            android:layout_width="match_parent"
+            android:layout_height="16dp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/progress"
+        android:background="@color/black"
+        android:gravity="center"
+        android:alpha="0.5"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_centerInParent="true"
+        android:orientation="vertical"
+        android:visibility="gone">
+
+        <ProgressBar
+            android:layout_margin="16dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+    </LinearLayout>
+
+</RelativeLayout>
