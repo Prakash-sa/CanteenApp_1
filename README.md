@@ -13,7 +13,7 @@ Canteen and Mess app with firebase as database. Mess chef will have to login wit
 ![alt text](https://github.com/Prakash-sa/CanteenApp_1/blob/master/Screenshot_2020-02-04-19-04-56-665_com.example.canteenapp.jpg)
 
 3. Student Account. 
-![alt text](https://github.com/Prakash-sa/CanteenApp_1/blob/master/Screenshot_2020-02-02-23-54-22-342_com.example.canteenapp.jpg)
+![alt text](https://github.com/Prakash-sa/CanteenApp_1/blob/master/Screenshot_2020-02-02-23-54-26-342_com.example.canteenapp.jpg)
 
 4. Feedback for individual students.
 ![alt text](https://github.com/Prakash-sa/CanteenApp_1/blob/master/Screenshot_2020-02-02-23-54-33-800_com.example.canteenapp.jpg)
