@@ -16,6 +16,10 @@
             android:id="@+id/nav_mealtime"
             android:icon="@drawable/ic_access_time_black_24dp"
             android:title="@string/menu_mealtime"/>
+        <item
+            android:id="@+id/nav_mess_feedback"
+            android:icon="@drawable/ic_feedback_black_24dp"
+            android:title="Feedback"/>
     </group>
 
 
