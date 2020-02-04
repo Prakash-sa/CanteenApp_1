@@ -180,7 +180,7 @@ public class UpdateDatabase extends AppCompatActivity {
 
                     //price
 
-                    if(price1.getText().toString()!=null)arg1=price1.getText().toString();
+                    if(price1.getText().toString()!=null)argprice1=price1.getText().toString();
                     else argprice1="null";
 
                     if(price2.getText().toString()!=null)argprice2=price2.getText().toString();

@@ -52,7 +52,7 @@ public class StudentHomeFragment extends Fragment {
     private String today;
     private TwoWayView breakfast_menu_listView,lunch_menu_listView,dinner_menu_listView,breakfast_extra_listView,lunch_extra_listView,dinner_extra_listView;
     private StudentHomeViewModel studentHomeViewModel;
-    ArrayAdapter<String>adapter1,adapter2,adapter3,adapter4,adapter5,adapter6;
+    private ArrayAdapter<String>adapter1,adapter2,adapter3,adapter4,adapter5,adapter6;
     private List<String>items1=new ArrayList<>();
     private List<String>items2=new ArrayList<>();
     private List<String>items3=new ArrayList<>();
